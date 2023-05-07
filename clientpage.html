@@ -41,70 +41,195 @@
   </header>
 
   <div>
-    <div>
-      <h1>Ração para cachorro</h1>
-
+    <div class="products-title">
+      <h1>Conheça nossos produtos</h1>
       <p>
-        Você sabe qual é a melhor ração para cachorro? Mais do que isso, você
-        sabe como as características individuais do seu pet influenciam nessa
-        decisão? Nesta página, disponibilizamos não apenas uma grande
-        quantidade de opções deste produto, mas também nos dedicamos a
-        explicar um pouco sobre o mundo das rações.
+        Temos vários itens interessantes para o seu pet! Não deixe de conferir!
       </p>
     </div>
   </div>
 
+  <div class="filter-container select-filter">
+    <label for="products-filter">Filtrar por:</label>
+    <select id="products-filter">
+      <option value="todos">Todos</option>
+      <option value="racao">Ração</option>
+      <option value="coleira">Coleira</option>
+      <option value="brinquedo">Brinquedo</option>
+      <option value="acessorio">Acessório</option>
+    </select>
+  </div>
+
   <!-- !PAGE CONTENT! -->
-  <div class="main conteudo padding-padrao" style="max-width: 1200px; margin-top: 100px;">
+  <div class="main conteudo padding-padrao" style="max-width: 1300px; margin-top: 100px;">
     <!-- First Product Grid-->
     <div class="row-padding center">
-      <div class="quarter product">
-        <img src="./src/logo.jpg" alt="Tatu" style="width: 100%" />
-        <h3>The Perfect Sandwich, A Real NYC Classic</h3>
-        <p>
-          Just some random text, lorem ipsum text praesent tincidunt ipsum
-          lipsum.
-        </p>
-        <span class="card-price">R$ 149,90</span>
-        <br>
+      <div class="quarter product" data-category="racao">
+        <div class="product-description">
+          <img class="product-img" src="./src/logo.jpg" alt="Tatu" style="width: 100%" />
+          <h3>Ração para cachorro</h3>
+          <p>
+            Just some random text, lorem ipsum text praesent tincidunt ipsum
+            lipsum.
+          </p>
+        </div>
         <div class="div-botao-comprar">
-        <input type="button" class="botao-comprar" value="Comprar">
+          <span class="card-price">R$ 149,90</span>
+          <br>
+          <input type="button" class="botao-comprar" value="Comprar">
         </div>
       </div>
-      <div class="quarter product">
-        <img src="./src/logo.jpg" alt="Steak" style="width: 100%" />
-        <h3>Let Me Tell You About This Steak</h3>
-        <p>
-          Once again, some random text to lorem lorem lorem lorem ipsum text
-          praesent tincidunt ipsum lipsum.
-        </p>
-        <span class="card-price">R$ 149,90</span>
-        <br>
-        <input type="button" class="botao-comprar" value="Comprar">
+      <div class="quarter product" data-category="racao">
+        <div class="product-description">
+          <img class="product-img" src="./src/logo.jpg" alt="Tatu" style="width: 100%" />
+          <h3>Ração para gato</h3>
+          <p>
+            Just some random text, lorem ipsum text praesent tincidunt ipsum
+            lipsum.
+          </p>
+        </div>
+        <div class="div-botao-comprar">
+          <span class="card-price">R$ 149,90</span>
+          <br>
+          <input type="button" class="botao-comprar" value="Comprar">
+        </div>
       </div>
-      <div class="quarter product">
-        <img src="./src/logo.jpg" alt="Cherries" style="width: 100%" />
-        <h3>Cherries, interrupted</h3>
-        <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-        <p>What else?</p>
-        <span class="card-price">R$ 149,90</span>
-        <br>
-        <input type="button" class="botao-comprar" value="Comprar">
+      <div class="quarter product" data-category="racao">
+        <div class="product-description">
+          <img class="product-img" src="./src/logo.jpg" alt="Tatu" style="width: 100%" />
+          <h3>Ração para coelho</h3>
+          <p>
+            Just some random text, lorem ipsum text praesent tincidunt ipsum
+            lipsum.
+          </p>
+        </div>
+        <div class="div-botao-comprar">
+          <span class="card-price">R$ 149,90</span>
+          <br>
+          <input type="button" class="botao-comprar" value="Comprar">
+        </div>
       </div>
-      <div class="quarter product">
-        <img src="./src/logo.jpg" alt="Pasta and Wine" style="width: 100%" />
-        <h3>Once Again, Robust Wine and Vegetable Pasta</h3>
-        <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-        <span class="card-price">R$ 149,90</span>
-        <br>
-        <input type="button" class="botao-comprar" value="Comprar">
+      <div class="quarter product" data-category="racao">
+        <div class="product-description">
+          <img class="product-img" src="./src/logo.jpg" alt="Tatu" style="width: 100%" />
+          <h3>Ração para Galinha</h3>
+          <p>
+            Just some random text, lorem ipsum text praesent tincidunt ipsum
+            lipsum.
+          </p>
+        </div>
+        <div class="div-botao-comprar">
+          <span class="card-price">R$ 149,90</span>
+          <br>
+          <input type="button" class="botao-comprar" value="Comprar">
+        </div>
+      </div>
+      <div class="quarter product" data-category="coleira">
+        <div class="product-description">
+          <img class="product-img" src="./src/logo.jpg" alt="Tatu" style="width: 100%" />
+          <h3>Coleira para Cachorro</h3>
+          <p>
+            Just some random text, lorem ipsum text praesent tincidunt ipsum
+            lipsum.
+          </p>
+        </div>
+        <div class="div-botao-comprar">
+          <span class="card-price">R$ 149,90</span>
+          <br>
+          <input type="button" class="botao-comprar" value="Comprar">
+        </div>
+      </div>
+      <div class="quarter product" data-category="coleira">
+        <div class="product-description">
+          <img class="product-img" src="./src/logo.jpg" alt="Tatu" style="width: 100%" />
+          <h3>Coleira para Gato</h3>
+          <p>
+            Just some random text, lorem ipsum text praesent tincidunt ipsum
+            lipsum.
+          </p>
+        </div>
+        <div class="div-botao-comprar">
+          <span class="card-price">R$ 149,90</span>
+          <br>
+          <input type="button" class="botao-comprar" value="Comprar">
+        </div>
+      </div>
+      <div class="quarter product" data-category="brinquedo">
+        <div class="product-description">
+          <img class="product-img" src="./src/logo.jpg" alt="Tatu" style="width: 100%" />
+          <h3>Osso de Cachorro</h3>
+          <p>
+            Just some random text, lorem ipsum text praesent tincidunt ipsum
+            lipsum.
+          </p>
+        </div>
+        <div class="div-botao-comprar">
+          <span class="card-price">R$ 149,90</span>
+          <br>
+          <input type="button" class="botao-comprar" value="Comprar">
+        </div>
       </div>
     </div>
   </div>
   <footer class="footer center">
-    <p>Feito por: Lucas, Pedro e Ramon</p>
-    <img class="img-gptw" src="./src/gptw.png" />
+    <div class="footer-container">
+      <div class="footer-item">
+        <h4>Contato</h4>
+        <ul>
+          <li>Email: info@example.com</li>
+          <li>Telefone: (123) 456-7890</li>
+          <li>Endereço: 123 Street, City</li>
+        </ul>
+      </div>
+      <div class="footer-item">
+        <h4>Nossa Equipe</h4>
+        <ul>
+          <li>Lucas</li>
+          <li>Pedro</li>
+          <li>Ramon</li>
+        </ul>
+      </div>
+      <div class="footer-item">
+        <h4>Raças</h4>
+        <ul>
+          <li>Golden Retriever</li>
+          <li>Labrador Retriever</li>
+          <li>German Shepherd</li>
+        </ul>
+      </div>
+      <div class="footer-item">
+        <img class="img-gptw" src="./src/gptw.png" />
+      </div>
+    </div>
   </footer>
+  <script>
+    // Wait for the DOM to load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the filter select element
+      var filterSelect = document.getElementById('products-filter');
+
+      // Add event listener to handle filter change
+      filterSelect.addEventListener('change', function() {
+        var selectedCategory = this.value;
+
+        // Get all product cards
+        var productCards = document.getElementsByClassName('product');
+
+        // Loop through each product card and show/hide based on the selected category
+        for (var i = 0; i < productCards.length; i++) {
+          var productCard = productCards[i];
+          var cardCategory = productCard.getAttribute('data-category');
+
+          // If the selected category is 'todos' or matches the card category, show the card
+          if (selectedCategory === 'todos' || selectedCategory === cardCategory) {
+            productCard.style.display = 'block';
+          } else {
+            productCard.style.display = 'none';
+          }
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
