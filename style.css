@@ -325,3 +325,65 @@ div .padding-padrao,
   outline: none;
   font-size: 1.1rem;
 }
+
+.bg-login {
+  background-image: url("./src/logo.jpg");
+  backdrop-filter: blur(6px);
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background-color: var(--amarelo-claro);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-box.admin {
+  background-color: var(--preto-claro);
+  color: var(--amarelo-escuro);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-box input[type="submit"], .change-login, .register-login {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--amarelo-escuro);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-box.admin input[type="submit"], .register-login, .change-login {
+  background-color: var(--preto-escuro);
+  color: var(--amarelo-claro);
+}
+
+.change-login, .register-login {
+  margin-bottom: 20px;
+  color: white;
+  background-color: gray;
+}
