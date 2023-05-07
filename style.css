@@ -326,9 +326,9 @@ div .padding-padrao,
   font-size: 1.1rem;
 }
 
-.bg-login {
+.bg-login, .bg-register {
   background-image: url("./src/logo.jpg");
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(4px);
 }
 
 .login-container {
@@ -366,7 +366,7 @@ div .padding-padrao,
   border-radius: 5px;
 }
 
-.login-box input[type="submit"], .change-login, .register-login {
+.login-box input[type="submit"], .change-login, .register-login, #toggleMode {
   width: 100%;
   padding: 10px;
   background-color: var(--amarelo-escuro);
@@ -377,13 +377,86 @@ div .padding-padrao,
   cursor: pointer;
 }
 
-.login-box.admin input[type="submit"], .register-login, .change-login {
+.login-box.admin input[type="submit"], .register-login, .change-login, #toggleMode {
   background-color: var(--preto-escuro);
   color: var(--amarelo-claro);
 }
 
-.change-login, .register-login {
+.change-login, .register-login, #toggleMode  {
   margin-bottom: 20px;
   color: white;
   background-color: gray;
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-box {
+  background-color: var(--amarelo-claro);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.register-box.admin {
+  background-color: var(--preto-claro);
+  color: var(--amarelo-escuro);
+}
+
+.register-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-box input[type="text"],
+.register-box input[type="password"],
+.register-box input[type="email"],
+.register-box input[type="date"]  {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+.register-box input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--amarelo-escuro);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-box.admin input[type="submit"] {
+  background-color: var(--preto-escuro);
+  color: var(--amarelo-claro);
+}
+
+.toggle-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.toggle-button button {
+  padding: 5px 10px;
+  background-color: var(--cinza);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-button button:hover {
+  background-color: var(--preto-claro);
 }
