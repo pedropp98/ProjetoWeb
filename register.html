@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register Form</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-register">
+    <div class="register-container">
+        <div class="register-box">
+            <h2>Registrar</h2>
+            <form id="registerForm">
+                <input type="text" placeholder="Nome" name="name" required>
+                <input type="email" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Senha" name="password" required>
+                <input type="password" placeholder="Confirmar Senha" name="confirmPassword" required>
+                <input type="date" placeholder="Data de Nascimento" name="birthday" required>
+                <input type="submit" value="Registrar">
+            </form>
+            <div class="toggle-button">
+                <button id="toggleMode">Mudar para Administrador</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var registerForm = document.getElementById('registerForm');
+            var toggleModeButton = document.getElementById('toggleMode');
+            var registerBox = document.querySelector('.register-box');
+
+            registerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var name = registerForm.elements.name.value;
+                var email = registerForm.elements.email.value;
+                var password = registerForm.elements.password.value;
+                var confirmPassword = registerForm.elements.confirmPassword.value;
+                var birthday = registerForm.elements.birthday.value;
+
+                console.log("Name: ", name);
+                console.log("Email: ", email);
+                console.log("Password: ", password);
+                console.log("Confirm Password: ", confirmPassword);
+                console.log("Birthday: ", birthday);
+            });
+
+            toggleModeButton.addEventListener('click', function () {
+                registerBox.classList.toggle('admin');
+                if (registerBox.classList.contains('admin')) {
+                    toggleModeButton.textContent = "Mudar para Cliente";
+                } else {
+                    toggleModeButton.textContent = "Mudar para Administrador";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
