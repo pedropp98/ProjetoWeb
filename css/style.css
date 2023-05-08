@@ -29,7 +29,7 @@ body::-webkit-scrollbar {
   width: 0;
 }
 
-img{
+img {
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -196,7 +196,7 @@ div .padding-padrao,
 }
 
 @media (max-width: 1200px) {
-  .quarter, {
+  .quarter {
     float: left;
     width: calc(49.5% - 40px);
   }
@@ -265,37 +265,37 @@ div .padding-padrao,
   padding: 10px;
   background-color: var(--amarelo-claro);
   border: none;
-  margin: 8px 0px 8px 0px;
+  width: 80%;
+  cursor: pointer;
+  color: var(--preto-claro);
+  margin: 8px 0px;
+  transition: 0.3s;
 }
 
 .botao-comprar:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   box-shadow: 0 2px 5px var(--cinza);
 }
 
 .product {
   margin: 10px 20px;
-  border-left: 3px solid var(--cinza);
-  border-bottom: 3px solid var(--cinza);
   border-radius: 10px;
-  height: 320px;
+  transition: 0.3s;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-9px);
+  box-shadow: 3px 3px 5px rgba(255, 208, 0, 0.206);
 }
 
 .product-img {
   padding: 5px;
+  height: 25vh;
 }
 
 .div-botao-comprar {
   height: 80px;
-}
-
-.product-description {
-  height: 230px;
 }
 
 .products-title {
@@ -625,13 +625,13 @@ main .recepcao {
   margin-top: 3vh;
 }
 
-.categorias h4{
+.categorias h4 {
   margin: 5vh 0 3vh 0;
   color: #000000e7;
   font-size: 2rem;
   font-weight: 400;
   text-shadow: 0 1px 3px #0000003a;
-} 
+}
 .categorias .cards {
   display: flex;
   justify-content: space-evenly;
@@ -661,7 +661,7 @@ main .recepcao {
   text-align: center;
 }
 
-.clientes{
+.clientes {
   background-image: url(../img/wallpaperPessoas.jpg);
   background-size: cover;
   height: 60vh;
@@ -669,24 +669,24 @@ main .recepcao {
   align-items: center;
 }
 
-.clientes .cards{
+.clientes .cards {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
 }
 
-.clientes .cards .card{
+.clientes .cards .card {
   background-color: #fff;
   width: 350px;
 }
 
-.clientes .cards .card img{
+.clientes .cards .card img {
   height: 300px;
   width: 300px;
   border-radius: 50%;
   border: 3px solid var(--amarelo-escuro);
   margin: 10px;
-} 
+}
 
 .botao-admin {
   font-size: 1.2rem;
