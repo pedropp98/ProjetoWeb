@@ -17,6 +17,8 @@
 a {
   text-decoration: none;
   color: var(--preto-escuro);
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -524,7 +526,6 @@ main .recepcao {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 25vh;
 }
 
 .recepcao > .card h4 {
@@ -592,7 +593,7 @@ main .recepcao {
 .produtos .card p:nth-child(3) {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #31c0f4;
+  color: var(--preto-claro);
 }
 
 .produtos .card div {
@@ -613,48 +614,50 @@ main .recepcao {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  color: var(--preto-escuro);
+
 }
 
 .produtos .card button:hover {
   transform: scale(1.1);
 }
 
-.categorias {
+#categorias {
   width: 80vw;
   margin: auto;
   margin-top: 3vh;
 }
 
-.categorias h4 {
+#categorias h4 {
   margin: 5vh 0 3vh 0;
   color: #000000e7;
   font-size: 2rem;
   font-weight: 400;
   text-shadow: 0 1px 3px #0000003a;
 }
-.categorias .cards {
+#categorias .cards {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   cursor: pointer;
 }
 
-.categorias .cards img {
+#categorias .cards img {
   height: 200px;
 }
 
-.categorias .cards .card {
+#categorias .cards .card {
   margin-bottom: 5vh;
   border-radius: 15px;
   margin-inline: 4vh;
   cursor: pointer;
   transition: 0.4s;
 }
-.categorias .cards .card:hover {
+#categorias .cards .card:hover {
   transform: scale(1.1);
 }
 
-.categorias .cards .card h5 {
+#categorias .cards .card h5 {
   font-size: 1.2rem;
   font-weight: 400;
   color: #000000e7;
@@ -664,9 +667,9 @@ main .recepcao {
 .clientes {
   background-image: url(../img/wallpaperPessoas.jpg);
   background-size: cover;
-  height: 60vh;
   display: flex;
   align-items: center;
+  padding: 8vh 0;
 }
 
 .clientes .cards {
@@ -675,9 +678,23 @@ main .recepcao {
   justify-content: space-evenly;
 }
 
+.clientes .cards .card:hover{
+  border: 4px solid var(--amarelo-escuro);
+  box-shadow: 0 10px 50px var(--amarelo-claro);
+}
+
+.clientes .cards .card:nth-child(odd):hover {
+  transform: scale(1.1) rotate3d(0, 1.2,-0.06, -40deg);
+}
+.clientes .cards .card:nth-child(even):hover {
+  transform: translateY(-2vh);
+}
+
 .clientes .cards .card {
   background-color: #fff;
   width: 350px;
+  cursor: pointer;
+  transition: transform .6s, border .3s;
 }
 
 .clientes .cards .card img {
@@ -704,4 +721,8 @@ main .recepcao {
 
 .admin-img {
   width: 100px;
+}
+
+.footer.homepage{
+  margin-top: 0;
 }

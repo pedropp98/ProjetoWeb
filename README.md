@@ -3,9 +3,9 @@ Projeto desenvolvido para a disciplina SCC0219
 
 ## Integrantes
 <b>
-* Lucas  NºUSP<br>
-* Pedro  NºUSP<br>
-* Ramon  NºUSP<br>
+* Lucas Pereira Pacheco NºUSP: 12543930 <br>
+* Pedro Afonso Perez Chagas NºUSP: 7777970 <br>
+* Ramon Moreira Machado NºUSP: 12543179 <br>
 </b>
 
 Tabelas de conteúdo 
@@ -73,6 +73,10 @@ Nas próximas entregas detalharemos cada um dos campos que serão necessários.
 
 Explicando o fluxo:
 
+* **Home:**
+![image](https://user-images.githubusercontent.com/40775728/236725210-b03fc960-c86a-48e1-99fe-6404dda4d2b6.png)
+
+
 * **Login**
 Tela de login para cliente
 ![image](https://user-images.githubusercontent.com/86575893/236719933-4385a201-c968-4040-90fa-09c606384204.png)
@@ -93,7 +97,7 @@ Se você for um administrador, entrará em nosso sistema pela Homepage, fará lo
 Nela você poderá escolher o que deseja fazer, desde cadastrar outros administradores no sistema, editar seu cadastro, ou "Ver os produtos", que pode tanto editar os produtos já cadastrados, como adicionar outros.
 
 Tela inicial de Admin:
-![image](https://user-images.githubusercontent.com/86575893/236720312-06d897fb-c4cb-446f-af04-846326b0ea38.png)
+![image](https://user-images.githubusercontent.com/86575893/236723577-e1e278a0-8500-4e82-8963-bb08e243d6b7.png)
 
 
 * **Cliente**:
@@ -102,6 +106,7 @@ Se você for um cliente, entrará em nosso sistema pela Homepage, fará login (o
 Nela você verá os produtos disponíveis em nossa loja e poderá adicioná-los ao carrinho, ou então editar seus dados cadastrais. Se adicionar um produto ao carrinho, poderá ir para a tela do carrinho para finalizar a compra, ou escolher continuar comprando.
 
 Tela inicial do Cliente:
+![image](https://user-images.githubusercontent.com/86575893/236723341-52d8ad55-1642-4735-9f7b-c2e91389879a.png)
 
 
 <div id='comentarioscodigo'/> 
