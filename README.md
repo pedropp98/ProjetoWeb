@@ -73,15 +73,38 @@ Nas próximas entregas detalharemos cada um dos campos que serão necessários.
 
 Explicando o fluxo:
 
+* **Login**
+* 
+Tela de login para cliente
+![image](https://user-images.githubusercontent.com/86575893/236719933-4385a201-c968-4040-90fa-09c606384204.png)
+
+Tela de login para administrador
+![image](https://user-images.githubusercontent.com/86575893/236720019-c0311e51-41b1-4da0-a784-6dd8d668b313.png)
+
+* **Registrar**
+* 
+Tela de registro para cliente
+![image](https://user-images.githubusercontent.com/86575893/236720183-a6738b69-d668-457d-9932-6ac593e3e4cb.png)
+
+Tela de registro para Administrador
+![image](https://user-images.githubusercontent.com/86575893/236720209-d11a691e-4cba-4e91-9eaf-99a580ecb367.png)
+
 * **Administrador**:
 
 Se você for um administrador, entrará em nosso sistema pela Homepage, fará login (ou se registrará) e irá para a "Página de Administrador". 
 Nela você poderá escolher o que deseja fazer, desde cadastrar outros administradores no sistema, editar seu cadastro, ou "Ver os produtos", que pode tanto editar os produtos já cadastrados, como adicionar outros.
 
+Tela inicial de Admin:
+![image](https://user-images.githubusercontent.com/86575893/236720312-06d897fb-c4cb-446f-af04-846326b0ea38.png)
+
+
 * **Cliente**:
 
 Se você for um cliente, entrará em nosso sistema pela Homepage, fará login (ou se registrará) e irá para a "Página de Cliente". 
 Nela você verá os produtos disponíveis em nossa loja e poderá adicioná-los ao carrinho, ou então editar seus dados cadastrais. Se adicionar um produto ao carrinho, poderá ir para a tela do carrinho para finalizar a compra, ou escolher continuar comprando.
+
+Tela inicial do Cliente:
+
 
 <div id='comentarioscodigo'/> 
 
