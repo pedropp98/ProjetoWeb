@@ -26,7 +26,12 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 0.5vw;
+  width: 0;
+}
+
+img{
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 header {
@@ -475,7 +480,7 @@ main {
   margin: auto;
 }
 
-main .banner{
+main .banner {
   width: 100vw;
   height: 50vh;
   background-image: url(../img/banner.jpg);
@@ -484,7 +489,7 @@ main .banner{
   position: relative;
 }
 
-main .banner .textoBanner{
+main .banner .textoBanner {
   width: 30vw;
   height: 20vh;
   position: absolute;
@@ -510,23 +515,23 @@ main .recepcao {
   column-gap: 3vw;
 }
 
-.recepcao>.card{
+.recepcao > .card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 25vh;
 }
 
-.recepcao>.card h4{
+.recepcao > .card h4 {
   font-size: 1.5rem;
 }
 
-.recepcao>.card .botoes{
+.recepcao > .card .botoes {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
-.recepcao>.card .botoes button{
+.recepcao > .card .botoes button {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -537,10 +542,9 @@ main .recepcao {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.recepcao>.card .botoes button:nth-child(2){
+.recepcao > .card .botoes button:nth-child(2) {
   background-color: transparent;
 }
-
 
 .sugestoes {
   flex-direction: row;
@@ -548,7 +552,7 @@ main .recepcao {
   grid-column-end: 5;
 }
 
-.sugestoes h4{
+.sugestoes h4 {
   margin-bottom: 10px;
   color: #000000e7;
   font-size: 1.7rem;
@@ -594,7 +598,7 @@ main .recepcao {
   cursor: pointer;
 }
 
-.produtos .card button{
+.produtos .card button {
   width: 100%;
   padding: 10px;
   background-color: var(--amarelo-escuro);
@@ -603,9 +607,78 @@ main .recepcao {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
-.produtos .card button:hover{
+.produtos .card button:hover {
   transform: scale(1.1);
+}
+
+.categorias {
+  width: 80vw;
+  margin: auto;
+  margin-top: 3vh;
+}
+
+.categorias h4{
+  margin: 5vh 0 3vh 0;
+  color: #000000e7;
+  font-size: 2rem;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #0000003a;
+} 
+.categorias .cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.categorias .cards img {
+  height: 200px;
+}
+
+.categorias .cards .card {
+  margin-bottom: 5vh;
+  border-radius: 15px;
+  margin-inline: 4vh;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.categorias .cards .card:hover {
+  transform: scale(1.1);
+}
+
+.categorias .cards .card h5 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #000000e7;
+  text-align: center;
+}
+
+.clientes{
+  background-image: url(../img/wallpaperPessoas.jpg);
+  background-size: cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.clientes .cards{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.clientes .cards .card{
+  background-color: #fff;
+  width: 350px;
+}
+
+.clientes .cards .card img{
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 3px solid var(--amarelo-escuro);
+  margin: 10px;
 } 
