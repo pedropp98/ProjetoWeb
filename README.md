@@ -74,7 +74,6 @@ Nas próximas entregas detalharemos cada um dos campos que serão necessários.
 Explicando o fluxo:
 
 * **Login**
-* 
 Tela de login para cliente
 ![image](https://user-images.githubusercontent.com/86575893/236719933-4385a201-c968-4040-90fa-09c606384204.png)
 
@@ -82,7 +81,6 @@ Tela de login para administrador
 ![image](https://user-images.githubusercontent.com/86575893/236720019-c0311e51-41b1-4da0-a784-6dd8d668b313.png)
 
 * **Registrar**
-* 
 Tela de registro para cliente
 ![image](https://user-images.githubusercontent.com/86575893/236720183-a6738b69-d668-457d-9932-6ac593e3e4cb.png)
 
