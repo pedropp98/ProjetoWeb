@@ -62,9 +62,14 @@ Com essas funcionalidades abrangentes, nosso sistema promete oferecer uma experi
 obs.: Se verificarmos a necessidade de mais alguma funcionalidade, nós a adicionaremos.
 
 #### Informações salvas no servidor
+
 As informações salvas no servidor serão as providas pelos clientes e admins quando realizarem seu cadastro, as informações dos produtos cadastrados pelos administradores, das mudanças nos dados do administrador ou do cliente (quando for realizada alguma alteração) e das transações de compra do cliente.
 
 Nas próximas entregas detalharemos cada um dos campos que serão necessários.
+
+#### Diagrama de Navegação
+
+
 
 <div id='comentarioscodigo'/> 
 
