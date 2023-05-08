@@ -185,13 +185,18 @@ div .padding-padrao,
   text-align: center;
 }
 
+.third {
+  float: left;
+  width: calc(33% - 40px);
+}
+
 .quarter {
   float: left;
   width: calc(24.9% - 40px);
 }
 
 @media (max-width: 1200px) {
-  .quarter {
+  .quarter, {
     float: left;
     width: calc(49.5% - 40px);
   }
@@ -682,3 +687,21 @@ main .recepcao {
   border: 3px solid var(--amarelo-escuro);
   margin: 10px;
 } 
+
+.botao-admin {
+  font-size: 1.2rem;
+  border-radius: 7px;
+  padding: 15px;
+  background-color: var(--amarelo-claro);
+  border: 2px 2px 0px 0px solid var(--cinza);
+  margin: 8px 0px 8px 0px;
+}
+
+.botao-admin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px var(--cinza);
+}
+
+.admin-img {
+  width: 100px;
+}
