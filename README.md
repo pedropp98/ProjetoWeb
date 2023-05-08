@@ -69,7 +69,19 @@ Nas próximas entregas detalharemos cada um dos campos que serão necessários.
 
 #### Diagrama de Navegação
 
+![image](https://user-images.githubusercontent.com/86575893/236716216-4b33793e-3148-4f35-af76-21ba3fcc7da0.png)
 
+Explicando o fluxo:
+
+* **Administrador**:
+
+Se você for um administrador, entrará em nosso sistema pela Homepage, fará login (ou se registrará) e irá para a "Página de Administrador". 
+Nela você poderá escolher o que deseja fazer, desde cadastrar outros administradores no sistema, editar seu cadastro, ou "Ver os produtos", que pode tanto editar os produtos já cadastrados, como adicionar outros.
+
+* **Cliente**:
+
+Se você for um cliente, entrará em nosso sistema pela Homepage, fará login (ou se registrará) e irá para a "Página de Cliente". 
+Nela você verá os produtos disponíveis em nossa loja e poderá adicioná-los ao carrinho, ou então editar seus dados cadastrais. Se adicionar um produto ao carrinho, poderá ir para a tela do carrinho para finalizar a compra, ou escolher continuar comprando.
 
 <div id='comentarioscodigo'/> 
 
