@@ -1,227 +1,258 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iBama</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/82e00c36bd.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iBama</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <script src="https://kit.fontawesome.com/82e00c36bd.js" crossorigin="anonymous"></script>
-</head>
+  <body>
+    <header>
+      <a href="homepage.html">
+        <figure id="logo">
+          <img src="../img/iBama.jpg" alt="ibamaLogo" />
+        </figure>
+      </a>
+      <div id="busca">
+        <input type="text" />
+        <i class="fa-solid fa-magnifying-glass clicavel"></i>
+      </div>
 
-<body>
-  <header>
-    <figure id="logo">
-      <img src="../img/iBama.jpg" alt="ibamaLogo" />
-    </figure>
-    <div id="busca">
-      <input type="text" />
-      <i class="fa-solid fa-magnifying-glass clicavel"></i>
-    </div>
-
-    <div id="menuSuperior">
-      <div>
-        <i class="fa-regular fa-user"></i>
-        <a href="#">Área do Cliente</a>
-      </div>
-    </div>
-    <i class="fa-solid fa-cart-shopping clicavel"></i>
-    <nav>
-      <ul>
-        <li>
-          <a href="#"><i class="fa-solid fa-shield-dog"></i> Categorias</a>
-        </li>
-        <li><a href="#">Promoções</a></li>
-        <li><a href="#">Descontos</a></li>
-        <li><a href="#">Silvestres</a></li>
-        <li><a href="#">Rações</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div>
-    <div class="products-title">
-      <h1>Conheça nossos produtos</h1>
-      <p>
-        Temos vários itens interessantes para o seu pet! Não deixe de conferir!
-      </p>
-    </div>
-  </div>
-
-  <div class="filter-container select-filter">
-    <label for="products-filter">Filtrar por:</label>
-    <select id="products-filter">
-      <option value="todos">Todos</option>
-      <option value="racao">Ração</option>
-      <option value="coleira">Coleira</option>
-      <option value="brinquedo">Brinquedo</option>
-    </select>
-  </div>
-
-  <!-- !PAGE CONTENT! -->
-  <div class="main conteudo padding-padrao" style="max-width: 1300px; margin-top: 100px;">
-    <!-- First Product Grid-->
-    <div class="row-padding center">
-      <div class="quarter product" data-category="racao">
-        <div class="product-description">
-          <img class="product-img" src="../img/produtos/racaoCachorro.webp" alt="Tatu" style="width: 100%" />
-          <h3>Ração para cachorro</h3>
-          <p>
-            racao cachorro com sabor de carne e legumes. 
-          </p>
-        </div>
-        <div class="div-botao-comprar">
-          <span class="card-price">R$ 25,90</span>
-          <br>
-          <input type="button" class="botao-comprar" value="Comprar">
+      <div id="menuSuperior">
+        <div>
+          <i class="fa-regular fa-user"></i>
+          <a href="./login.html">Área do Cliente</a>
         </div>
       </div>
-      <div class="quarter product" data-category="racao">
-        <div class="product-description">
-          <img class="product-img" src="../img/produtos/racaoGato.png" alt="Tatu" style="width: 100%" />
-          <h3>Ração para gato</h3>
-          <p>
-            racao para gatos com sabor de peixe e frango e com vitaminas.
-          </p>
-        </div>
-        <div class="div-botao-comprar">
-          <span class="card-price">R$ 18,90</span>
-          <br>
-          <input type="button" class="botao-comprar" value="Comprar">
-        </div>
-      </div>
-      <div class="quarter product" data-category="racao">
-        <div class="product-description">
-          <img class="product-img" src="../img/produtos/racaoCoelho.webp" alt="Tatu" style="width: 100%" />
-          <h3>Ração para coelho</h3>
-          <p>
-            racao para coelhos com sabor de cenoura e com vitaminas. 
-          </p>
-        </div>
-        <div class="div-botao-comprar">
-          <span class="card-price">R$ 32,70</span>
-          <br>
-          <input type="button" class="botao-comprar" value="Comprar">
-        </div>
-      </div>
-      <div class="quarter product" data-category="racao">
-        <div class="product-description">
-          <img class="product-img" src="../img/produtos/racaoGalinha.jpg" alt="Tatu" style="width: 100%" />
-          <h3>Ração para Galinha</h3>
-          <p>
-            racao para galinhas com sabor de milho e com vitaminas. 
-          </p>
-        </div>
-        <div class="div-botao-comprar">
-          <span class="card-price">R$ 12,50</span>
-          <br>
-          <input type="button" class="botao-comprar" value="Comprar">
-        </div>
-      </div>
-      <div class="quarter product" data-category="coleira">
-        <div class="product-description">
-          <img class="product-img" src="../img/produtos/coleiraCachorro.webp" alt="Tatu" style="width: 100%" />
-          <h3>Coleira para Cachorro</h3>
-          <p>
-            coleira cachorro com estampa de oncinha e com guizo.
-          </p>
-        </div>
-        <div class="div-botao-comprar">
-          <span class="card-price">R$ 85,90</span>
-          <br>
-          <input type="button" class="botao-comprar" value="Comprar">
-        </div>
-      </div>
-      <div class="quarter product" data-category="coleira">
-        <div class="product-description">
-          <img class="product-img" src="../img/produtos/coleiraGato.png" alt="Tatu" style="width: 100%" />
-          <h3>Coleira para Gato</h3>
-          <p>
-            coleira para gato, com estampa de oncinha e com guizo.
-          </p>
-        </div>
-        <div class="div-botao-comprar">
-          <span class="card-price">R$ 95,00</span>
-          <br>
-          <input type="button" class="botao-comprar" value="Comprar">
-        </div>
-      </div>
-      <div class="quarter product" data-category="brinquedo" >
-        <div class="product-description">
-          <img class="product-img" src="../img/produtos/ossoCachorro.jpg" alt="Tatu" style="width: 100%" />
-          <h3>Osso de Cachorro</h3>
-          <p>
-            Osso ideal para cachorros de pequeno porte, com sabor.
-          </p>
-        </div>
-        <div class="div-botao-comprar">
-          <span class="card-price">R$ 12,99</span>
-          <br>
-          <input type="button" class="botao-comprar" value="Comprar">
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer class="footer center">
-    <div class="footer-container">
-      <div class="footer-item">
-        <h4>Contato</h4>
+      <i class="fa-solid fa-cart-shopping clicavel"></i>
+      <nav>
         <ul>
-          <li>Email: ibamacontato@gmail.com</li>
-          <li>Telefone: (12) 97402-9857</li>
-          <li>Endereço: Av. Trab. São Carlense, 400, 13566-590</li>
+          <li>
+            <a href="#"><i class="fa-solid fa-shield-dog"></i> Categorias</a>
+          </li>
+          <li><a href="#">Promoções</a></li>
+          <li><a href="#">Descontos</a></li>
+          <li><a href="#">Silvestres</a></li>
+          <li><a href="#">Rações</a></li>
         </ul>
-      </div>
-      <div class="footer-item">
-        <h4>Nossa Equipe</h4>
-        <ul>
-          <li>Linda</li>
-          <li>Marcelo</li>
-          <li>Tipa</li>
-        </ul>
-      </div>
-      <div class="footer-item">
-        <h4>Navegue</h4>
-        <ul>
-          <li>Home Page</li>
-          <li>Login</li>
-          <li>Registrar</li>
-        </ul>
-      </div>
-      <div class="footer-item">
-        <img class="img-gptw" src="../img/gptw.png" />
+      </nav>
+    </header>
+
+    <div>
+      <div class="products-title">
+        <h1>Conheça nossos produtos</h1>
+        <p>
+          Temos vários itens interessantes para o seu pet! Não deixe de
+          conferir!
+        </p>
       </div>
     </div>
-  </footer>
-  <script>
-    // Wait for the DOM to load
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get the filter select element
-      var filterSelect = document.getElementById('products-filter');
 
-      // Add event listener to handle filter change
-      filterSelect.addEventListener('change', function() {
-        var selectedCategory = this.value;
+    <div class="filter-container select-filter">
+      <label for="products-filter">Filtrar por:</label>
+      <select id="products-filter">
+        <option value="todos">Todos</option>
+        <option value="racao">Ração</option>
+        <option value="coleira">Coleira</option>
+        <option value="brinquedo">Brinquedo</option>
+      </select>
+    </div>
 
-        // Get all product cards
-        var productCards = document.getElementsByClassName('product');
+    <!-- !PAGE CONTENT! -->
+    <div
+      class="main conteudo padding-padrao"
+      style="max-width: 1300px; margin-top: 100px"
+    >
+      <!-- First Product Grid-->
+      <div class="row-padding center">
+        <div class="quarter product" data-category="racao">
+          <div class="product-description">
+            <img
+              class="product-img"
+              src="../img/produtos/racaoCachorro.webp"
+              alt="Tatu"
+              style="width: 100%"
+            />
+            <h3>Ração para cachorro</h3>
+            <p>racao cachorro com sabor de carne e legumes.</p>
+          </div>
+          <div class="div-botao-comprar">
+            <span class="card-price">R$ 25,90</span>
+            <br />
+            <input type="button" class="botao-comprar" value="Comprar" />
+          </div>
+        </div>
+        <div class="quarter product" data-category="racao">
+          <div class="product-description">
+            <img
+              class="product-img"
+              src="../img/produtos/racaoGato.png"
+              alt="Tatu"
+              style="width: 100%"
+            />
+            <h3>Ração para gato</h3>
+            <p>racao para gatos com sabor de peixe e frango e com vitaminas.</p>
+          </div>
+          <div class="div-botao-comprar">
+            <span class="card-price">R$ 18,90</span>
+            <br />
+            <input type="button" class="botao-comprar" value="Comprar" />
+          </div>
+        </div>
+        <div class="quarter product" data-category="racao">
+          <div class="product-description">
+            <img
+              class="product-img"
+              src="../img/produtos/racaoCoelho.webp"
+              alt="Tatu"
+              style="width: 100%"
+            />
+            <h3>Ração para coelho</h3>
+            <p>racao para coelhos com sabor de cenoura e com vitaminas.</p>
+          </div>
+          <div class="div-botao-comprar">
+            <span class="card-price">R$ 32,70</span>
+            <br />
+            <input type="button" class="botao-comprar" value="Comprar" />
+          </div>
+        </div>
+        <div class="quarter product" data-category="racao">
+          <div class="product-description">
+            <img
+              class="product-img"
+              src="../img/produtos/racaoGalinha.jpg"
+              alt="Tatu"
+              style="width: 100%"
+            />
+            <h3>Ração para Galinha</h3>
+            <p>racao para galinhas com sabor de milho e com vitaminas.</p>
+          </div>
+          <div class="div-botao-comprar">
+            <span class="card-price">R$ 12,50</span>
+            <br />
+            <input type="button" class="botao-comprar" value="Comprar" />
+          </div>
+        </div>
+        <div class="quarter product" data-category="coleira">
+          <div class="product-description">
+            <img
+              class="product-img"
+              src="../img/produtos/coleiraCachorro.webp"
+              alt="Tatu"
+              style="width: 100%"
+            />
+            <h3>Coleira para Cachorro</h3>
+            <p>coleira cachorro com estampa de oncinha e com guizo.</p>
+          </div>
+          <div class="div-botao-comprar">
+            <span class="card-price">R$ 85,90</span>
+            <br />
+            <input type="button" class="botao-comprar" value="Comprar" />
+          </div>
+        </div>
+        <div class="quarter product" data-category="coleira">
+          <div class="product-description">
+            <img
+              class="product-img"
+              src="../img/produtos/coleiraGato.png"
+              alt="Tatu"
+              style="width: 100%"
+            />
+            <h3>Coleira para Gato</h3>
+            <p>coleira para gato, com estampa de oncinha e com guizo.</p>
+          </div>
+          <div class="div-botao-comprar">
+            <span class="card-price">R$ 95,00</span>
+            <br />
+            <input type="button" class="botao-comprar" value="Comprar" />
+          </div>
+        </div>
+        <div class="quarter product" data-category="brinquedo">
+          <div class="product-description">
+            <img
+              class="product-img"
+              src="../img/produtos/ossoCachorro.jpg"
+              alt="Tatu"
+              style="width: 100%"
+            />
+            <h3>Osso de Cachorro</h3>
+            <p>Osso ideal para cachorros de pequeno porte, com sabor.</p>
+          </div>
+          <div class="div-botao-comprar">
+            <span class="card-price">R$ 12,99</span>
+            <br />
+            <input type="button" class="botao-comprar" value="Comprar" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer center">
+      <div class="footer-container">
+        <div class="footer-item">
+          <h4>Contato</h4>
+          <ul>
+            <li>Email: ibamacontato@gmail.com</li>
+            <li>Telefone: (12) 97402-9857</li>
+            <li>Endereço: Av. Trab. São Carlense, 400, 13566-590</li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <h4>Nossa Equipe</h4>
+          <ul>
+            <li>Linda</li>
+            <li>Marcelo</li>
+            <li>Tipa</li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <h4>Navegue</h4>
+          <ul>
+            <li>Home Page</li>
+            <li>Login</li>
+            <li>Registrar</li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <img class="img-gptw" src="../img/gptw.png" />
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Wait for the DOM to load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the filter select element
+        var filterSelect = document.getElementById("products-filter");
 
-        // Loop through each product card and show/hide based on the selected category
-        for (var i = 0; i < productCards.length; i++) {
-          var productCard = productCards[i];
-          var cardCategory = productCard.getAttribute('data-category');
+        // Add event listener to handle filter change
+        filterSelect.addEventListener("change", function () {
+          var selectedCategory = this.value;
 
-          // If the selected category is 'todos' or matches the card category, show the card
-          if (selectedCategory === 'todos' || selectedCategory === cardCategory) {
-            productCard.style.display = 'block';
-          } else {
-            productCard.style.display = 'none';
+          // Get all product cards
+          var productCards = document.getElementsByClassName("product");
+
+          // Loop through each product card and show/hide based on the selected category
+          for (var i = 0; i < productCards.length; i++) {
+            var productCard = productCards[i];
+            var cardCategory = productCard.getAttribute("data-category");
+
+            // If the selected category is 'todos' or matches the card category, show the card
+            if (
+              selectedCategory === "todos" ||
+              selectedCategory === cardCategory
+            ) {
+              productCard.style.display = "block";
+            } else {
+              productCard.style.display = "none";
+            }
           }
-        }
+        });
       });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

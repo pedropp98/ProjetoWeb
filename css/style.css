@@ -17,6 +17,8 @@
 a {
   text-decoration: none;
   color: var(--preto-escuro);
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -619,42 +621,42 @@ main .recepcao {
   transform: scale(1.1);
 }
 
-.categorias {
+#categorias {
   width: 80vw;
   margin: auto;
   margin-top: 3vh;
 }
 
-.categorias h4 {
+#categorias h4 {
   margin: 5vh 0 3vh 0;
   color: #000000e7;
   font-size: 2rem;
   font-weight: 400;
   text-shadow: 0 1px 3px #0000003a;
 }
-.categorias .cards {
+#categorias .cards {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   cursor: pointer;
 }
 
-.categorias .cards img {
+#categorias .cards img {
   height: 200px;
 }
 
-.categorias .cards .card {
+#categorias .cards .card {
   margin-bottom: 5vh;
   border-radius: 15px;
   margin-inline: 4vh;
   cursor: pointer;
   transition: 0.4s;
 }
-.categorias .cards .card:hover {
+#categorias .cards .card:hover {
   transform: scale(1.1);
 }
 
-.categorias .cards .card h5 {
+#categorias .cards .card h5 {
   font-size: 1.2rem;
   font-weight: 400;
   color: #000000e7;
