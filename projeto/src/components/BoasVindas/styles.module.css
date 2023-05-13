@@ -1,0 +1,42 @@
+.recepcao {
+  width: 80vw;
+  margin: auto;
+  margin-top: 3vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 3vw;
+}
+
+.firstCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.firstCard h4 {
+  font-size: 1.5rem;
+}
+
+.firstCard .botoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.firstCard .botoes button:nth-child(2) {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.sugestoes {
+  flex-direction: row;
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
+
+.sugestoes h4 {
+  margin-bottom: 10px;
+  color: #000000e7;
+  font-size: 1.7rem;
+  text-shadow: 0 1px 3px #0000003a;
+}
