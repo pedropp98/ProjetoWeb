@@ -138,6 +138,8 @@ Para as próximas entregas, essa seção vai contar com detalhes a implementaç�
 ## Como faço para rodar o projeto?
 O passo a passo é bem simples, basta clonar o repositório do github e abrir no seu navegador os arquivos .html. Bem simples!
 
+Ou acesse em [lbama.com.br](https://lbama.com.br/html/homepage.html)
+
 <div id='problemas'/> 
 
 ## Problemas
