@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" href="../img/caracol.webp" type="image/x-icon" />
+  </head>
 
-<head>
-  <title>Login Form</title>
-  <link rel="stylesheet" href="../css/style.css" />
-</head>
-
-<body class="bg-login">
-  <div class="login-container">
-    <div class="login-box">
-      <h2>Login</h2>
-      <form id="loginForm">
-        <button id="btn-change" class="change-login" onclick="toggleMode()">Mudar para Administrador</button>
-        <input type="text" placeholder="Email" name="email" required>
-        <input type="password" placeholder="Password" name="password" required>
-        <input type="submit" class="change-login" value="Login">
-        <button class="register-login">Registre-se</button>
-      </form>
+  <body class="bg-login">
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <button id="btn-change" class="change-login" onclick="toggleMode()">
+            Mudar para Administrador
+          </button>
+          <input type="text" placeholder="Email" name="email" required />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <input type="submit" class="change-login" value="Login" />
+          <button class="register-login">Registre-se</button>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <script>
-    // Function to toggle between client and admin mode
-    function toggleMode() {
-      const loginBox = document.querySelector('.login-box');
-      const btnChange = document.querySelector('#btn-change');
-      if (btnChange.textContent == "Mudar para Administrador") {
-        btnChange.innerHTML = "Mudar para Cliente";
+    <script>
+      // Function to toggle between client and admin mode
+      function toggleMode() {
+        const loginBox = document.querySelector(".login-box");
+        const btnChange = document.querySelector("#btn-change");
+        if (btnChange.textContent == "Mudar para Administrador") {
+          btnChange.innerHTML = "Mudar para Cliente";
+        } else {
+          btnChange.innerHTML = "Mudar para Administrador";
+        }
+        loginBox.classList.toggle("admin");
       }
-      else {
-        btnChange.innerHTML = "Mudar para Administrador";
-      }
-      loginBox.classList.toggle('admin');
-    }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const loginForm = document.getElementById('loginForm');
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("loginForm");
 
-      loginForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        // Add your login logic here
+        loginForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Add your login logic here
+        });
       });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
