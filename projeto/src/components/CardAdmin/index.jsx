@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import styles from "./styles.module.css";
 
 function CardAdmin(props) {
@@ -13,7 +15,8 @@ function CardAdmin(props) {
       </p>
     </div>
     <div class={styles.admin_button_div}>
-      <input type="button" class={styles.admin_button} value={props.button} />
+    <Link to={props.link}><input type="button" class={styles.admin_button} value={props.button} /></Link>
+      
     </div>
   </div>
   );
