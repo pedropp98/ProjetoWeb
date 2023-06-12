@@ -1,6 +1,8 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
+import CreateAdmin from "./pages/CreateAdmin";
+import EditAdmin from "./pages/EditAdmin";
 import Home from "./pages/Home";
 
 import {
