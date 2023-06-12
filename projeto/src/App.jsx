@@ -2,6 +2,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
+import CreateAdmin from "./pages/CreateAdmin";
+import EditAdmin from "./pages/EditAdmin";
 
 import {
   Route,
@@ -19,6 +21,14 @@ function App() {
             <Route
               path="/admin"
               element={<Admin/>}
+            />
+            <Route
+              path="/createAdmin"
+              element={<CreateAdmin/>}
+            />
+             <Route
+              path="/editAdmin"
+              element={<EditAdmin/>}
             />
             {/* <Route
               path="/financeiro"
