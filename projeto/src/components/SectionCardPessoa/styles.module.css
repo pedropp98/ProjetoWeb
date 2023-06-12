@@ -1,0 +1,9 @@
+.clientes {
+    /* background-image: url(../img/wallpaperPessoas.jpg); */
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 8vh 0;
+    justify-content: space-evenly;
+    height: 66svh;
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
@@ -10,11 +11,19 @@ import {
   BrowserRouter as Router,
   Routes
 } from "react-router-dom";
+=======
+import "./App.css";
+import Header from "./components/Header";
+import Banner from "./components/Banner";
+import BoasVindas from "./components/BoasVindas";
+import SectionCards from "./components/SectionCardPessoa";
+>>>>>>> ed32ac4 (Add Review Section #Closes 7)
 
 function App() {
   return (
     <>
       <Header />
+<<<<<<< HEAD
         <Router>
           <Routes>
             <Route index element={<Home />} />
@@ -41,6 +50,9 @@ function App() {
           </Routes>
         </Router>
         <Footer />
+=======
+      <SectionCards />
+>>>>>>> ed32ac4 (Add Review Section #Closes 7)
     </>
   );
 }
