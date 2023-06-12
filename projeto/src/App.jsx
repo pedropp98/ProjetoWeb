@@ -1,17 +1,36 @@
-import { useState } from "react";
-import "./App.css";
 import Header from "./components/Header";
-import Banner from "./components/Banner";
-import BoasVindas from "./components/BoasVindas";
+import Footer from "./components/Footer";
+import Admin from "./pages/Admin";
+import Home from "./pages/Home";
+
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes
+} from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Header />
-      <Banner />
-      <BoasVindas />
+        <Router>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route
+              path="/admin"
+              element={<Admin/>}
+            />
+            {/* <Route
+              path="/financeiro"
+              element={<Dashboard content={<Financeiro />} />}
+            />
+            <Route
+              path="/containers"
+              element={<Dashboard content={<Containers />} />}
+            /> */}
+          </Routes>
+        </Router>
+        <Footer />
     </>
   );
 }
