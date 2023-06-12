@@ -23,12 +23,7 @@ const Products = {
       description: "Belo e exótico",
       price: "R$ 80,00",
     },
-    {
-      image: peixe,
-      title: "Peixe de aquário",
-      description: "Para o seu aquário de 100 litros",
-      price: "R$ 50,00",
-    },
+
   ],
 };
 

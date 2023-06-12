@@ -1,5 +1,6 @@
 import BoasVindas from "../../components/BoasVindas";
 import Banner from "../../components/Banner";
+import SectionCardPessoa from "../../components/SectionCardPessoa";
 
 function Home() {
 
@@ -7,6 +8,8 @@ function Home() {
     <>
       <Banner/>
       <BoasVindas /> 
+      <SectionCardPessoa />
+      
     </>
   );
 }
