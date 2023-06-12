@@ -1,0 +1,22 @@
+import React from "react";
+
+import styles from "./styles.module.css";
+
+function CardAdmin(props) {
+  return (
+    <div className={styles.third + ' ' + styles.product}>
+    <div class="product_description">
+      <img class={styles.admin_img} src={props.src} />
+      <h3>{props.name}</h3>
+      <p>
+        {props.desc}
+      </p>
+    </div>
+    <div class={styles.admin_button_div}>
+      <input type="button" class={styles.admin_button} value={props.button} />
+    </div>
+  </div>
+  );
+}
+
+export default CardAdmin;
