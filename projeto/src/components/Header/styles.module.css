@@ -110,7 +110,7 @@ nav li:hover {
   transform: scale(0.8);
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
   #header {
     height: 200px;
   }
@@ -118,6 +118,6 @@ nav li:hover {
     width: 200px;
   }
   header #busca {
-    width: 200px;
+    width: 220px;
   }
 }

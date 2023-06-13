@@ -9,12 +9,12 @@ function ListProduct() {
   return (
     <>
       <div>
-        <div class="products_title">
-          <h1>Conheça nossos produtos</h1>
+        <div className={styles.products_title}>
+          <h1>Produtos</h1>
           <p>
-            Temos vários itens interessantes para o seu pet! Não deixe de
-            conferir!
+            Veja e edite produtos ja cadastrados,alem de cadastrar novos produtos!
           </p>
+      <input type="button" className={styles.botao_grande} value="Cadastrar novo produto" />
         </div>
       </div>
 
@@ -29,11 +29,12 @@ function ListProduct() {
       </div>
 
       <div
-        class="main conteudo padding_padrao">
+        className={styles.main + ' ' + styles.conteudo + ' ' + styles.padding_padrao}>
         <div class={styles.row_padding + ' ' +  styles.center}>
           {/* PRODUTOS */}
           <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
           <Product category="coleira" src={img2} name="Coleira diferenciada" desc="Produto teste desc" price="30.00" button="Editar"/>
+          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
           <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
           <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
           <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>

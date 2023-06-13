@@ -8,7 +8,7 @@ main {
 .conteudo {
   margin-left: auto;
   margin-right: auto;
-  max-width: 980px;
+  max-width: 1400px;
 }
 
 .center {
@@ -63,4 +63,24 @@ div .padding_padrao,
   content: "";
   display: table;
   clear: both;
+}
+
+.botao_grande {
+  font-size: 1.2rem;
+  border-radius: 7px;
+  padding: 10px;
+  background-color: var(--amarelo-claro);
+  border: none;
+  width: 50%;
+  cursor: pointer;
+  color: var(--preto-claro);
+  margin: 8px 0px;
+  transition: 0.3s;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.botao_grande:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 5px var(--cinza);
 }
