@@ -1,24 +1,23 @@
 import React from "react";
 
-function CardAdmin(props) {
+import styles from "./styles.module.css";
+
+function Product(props) {
   return (
     <div class="quarter product" data-category={props.category}>
-      <div class="product-description">
-        <img
-          class="product-img"
+      <img
+          className={styles.product_img}
           src={props.src}
-          style="width: 100%"
         />
         <h3>{props.name}</h3>
         <p>{props.desc}</p>
-      </div>
-      <div class="div-botao-comprar">
-        <span class="card-price">R$ {props.price}</span>
+      <div class="div_botao_comprar">
+        <span class="card_price">R$ {props.price}</span>
         <br />
-        <input type="button" class="botao-comprar" value="Comprar" />
+        <input type="button" className="botao_comprar" value={props.button} />
       </div>
     </div>
   );
 }
 
-export default CardAdmin;
+export default Product;

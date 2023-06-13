@@ -4,6 +4,7 @@ import Admin from "./pages/Admin";
 import CreateAdmin from "./pages/CreateAdmin";
 import EditAdmin from "./pages/EditAdmin";
 import Home from "./pages/Home";
+import ListProduct from "./pages/ListProduct";
 
 import {
   Route,
@@ -18,6 +19,11 @@ function App() {
       <Router>
         <Routes>
           <Route
+            index
+            element={<Home/>}
+            />
+            {/* ADMIN (tem q fazer verificacao de login)*/}
+          <Route
             path="/admin"
             element={<Admin />}
           />
@@ -28,6 +34,10 @@ function App() {
           <Route
             path="/editAdmin"
             element={<EditAdmin />}
+          />
+          <Route
+            path="/adminProducts"
+            element={<ListProduct />}
           />
         </Routes>
       </Router>
