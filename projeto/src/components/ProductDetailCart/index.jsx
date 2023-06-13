@@ -5,7 +5,7 @@ const ProductDetailCart = () => {
   return (
     <div className={styles.container}>
       <img
-        src="https://example.com/product-image.jpg"
+        src="https://i.pinimg.com/originals/7e/d4/6c/7ed46c55250a58a93008d25641ec1cec.jpg"
         alt="Product"
         className={styles.productImage}
       />

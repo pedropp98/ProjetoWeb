@@ -6,15 +6,25 @@ const Cart = () => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h2 className={styles.title}>Cart</h2>
+        <h1 className={styles.title}>Carrinho</h1>
         <ProductDetailsCart />
         <ProductDetailsCart />
         <div className={styles.deliveryAddress}>
-          <div className={styles.label}>Delivery Address:</div>
+          <div className={styles.label}>Endereço de entrega:</div>
           <div className={styles.value}>123 Main St, City, State, ZIP</div>
         </div>
+        <div className={styles.deliveryAddress}>
+          <div className={styles.label}>Método de pagamento:</div>
+        </div>
+        <div className={styles.selectContainer}>
+          <select className={styles.select}>
+            <option value="credit">Crédito</option>
+            <option value="pix">Débito</option>
+            <option value="debit">Pix</option>
+          </select>
+        </div>
         <div className={styles.totalPrice}>
-          Total Price: $199.98
+          Total: R$ 199.98
         </div>
         <div className={styles.buttons}>
           <button className={`${styles.button} ${styles.buyButton}`}>Finalize Buy</button>

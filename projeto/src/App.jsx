@@ -8,6 +8,9 @@ import ListProduct from "./pages/ListProduct";
 import EditProduct from "./pages/EditProduct";
 import CreateProduct from "./pages/CreateProduct";
 import SearchProduct from "./pages/SearchProduct";
+import CreateCostumer from "./pages/CreateCostumer";
+import EditCostumer from "./pages/EditCostumer";
+
 
 import {
   Route,
@@ -64,6 +67,14 @@ function App() {
           <Route
             path="/cart"
             element={<Cart />}
+          />
+          <Route
+            path="/createCostumer"
+            element={<CreateCostumer />}
+          />
+          <Route
+            path="/editCostumer"
+            element={<EditCostumer />}
           />
         </Routes>
       </Router>
