@@ -1,0 +1,87 @@
+main {
+  width: 100vw;
+  margin: auto;
+  max-width: 1300px;
+  margin-top: 100px;
+}
+
+.conteudo {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
+}
+
+.center {
+  text-align: center;
+}
+
+.products_title {
+  max-width: 1400px;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.filter_container {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 15px;
+  text-align: center;
+}
+
+.products_title p {
+  margin-top: 15px;
+}
+
+.select_filter {
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--cinza);
+}
+
+.select_filter select {
+  width: auto;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--amarelo-escuro);
+  color: var(--preto-escuro);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+}
+
+div .padding_padrao,
+.quarter {
+  padding: 0 8px;
+}
+
+.row_padding:after,
+.row_padding:before {
+  content: "";
+  display: table;
+  clear: both;
+  margin-bottom: 30px;
+}
+
+.botao_grande {
+  font-size: 1.2rem;
+  border-radius: 7px;
+  padding: 10px;
+  background-color: var(--amarelo-claro);
+  border: none;
+  width: 50%;
+  cursor: pointer;
+  color: var(--preto-claro);
+  margin: 8px 0px;
+  transition: 0.3s;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.botao_grande:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 5px var(--cinza);
+}

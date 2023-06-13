@@ -1,6 +1,7 @@
 import React from "react";
 
 import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
 
 function Product(props) {
   return (
@@ -14,7 +15,7 @@ function Product(props) {
       <div className={styles.div_botao_comprar}>
         <span class="card_price">R$ {props.price}</span>
         <br />
-        <input type="button" className={styles.botao_comprar} value={props.button} />
+        <Link to={props.link}><input type="button" className={styles.botao_comprar} value={props.button} /></Link>
       </div>
     </div>
   );

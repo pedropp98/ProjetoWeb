@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import { Link } from "react-router-dom";
 
 const ProductForm = (props) => {
+
   const [productImage, setProductImage] = useState(null);
 
   const handleImageChange = (event) => {
@@ -25,22 +26,22 @@ const ProductForm = (props) => {
       <form>
         <div className={styles.formGroup}>
           <label htmlFor="name">Nome:</label>
-          <input type="text" id="name" className={styles.input} />
+          <input type="text" id="name" className={styles.input} value={props.name} />
         </div>
 
         <div className={styles.formGroup}>
           <label htmlFor="description">Descrição:</label>
-          <textarea id="description" className={styles.textarea}></textarea>
+          <textarea id="description" className={styles.textarea} value={props.desc}></textarea>
         </div>
 
         <div className={styles.formGroup}>
           <label htmlFor="price">Preço:</label>
-          <input type="number" id="price" className={styles.input} />
+          <input type="number" id="price" className={styles.input} value={props.price} />
         </div>
 
         <div className={styles.formGroup}>
           <label htmlFor="quantity">Quantidade:</label>
-          <input type="number" id="quantity" className={styles.input} />
+          <input type="number" id="quantity" className={styles.input} value={props.quantity} />
         </div>
 
         <div className={styles.formGroup}>
@@ -49,6 +50,7 @@ const ProductForm = (props) => {
             type="file"
             id="productImage"
             className={styles.input}
+            src={props.img}
             onChange={handleImageChange}
           />
         </div>

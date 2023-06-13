@@ -7,12 +7,14 @@ import Home from "./pages/Home";
 import ListProduct from "./pages/ListProduct";
 import EditProduct from "./pages/EditProduct";
 import CreateProduct from "./pages/CreateProduct";
+import SearchProduct from "./pages/SearchProduct";
 
 import {
   Route,
   BrowserRouter as Router,
   Routes
 } from "react-router-dom";
+import SeeProduct from "./pages/SeeProduct";
 
 function App() {
   return (
@@ -48,6 +50,15 @@ function App() {
           <Route
             path="/createProduct"
             element={<CreateProduct />}
+          />
+          {/* cliente */}
+          <Route
+            path="/searchProducts"
+            element={<SearchProduct />}
+          />
+          <Route
+            path="/productDetails"
+            element={<SeeProduct />}
           />
         </Routes>
       </Router>

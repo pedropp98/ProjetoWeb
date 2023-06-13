@@ -35,12 +35,12 @@ function ListProduct() {
         className={styles.main + ' ' + styles.conteudo + ' ' + styles.padding_padrao}>
         <div class={styles.row_padding + ' ' +  styles.center}>
           {/* PRODUTOS */}
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
-          <Product category="coleira" src={img2} name="Coleira diferenciada" desc="Produto teste desc" price="30.00" button="Editar"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar"/>
+          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar" link="../editProduct"/>
+          <Product category="coleira" src={img2} name="Coleira diferenciada" desc="Produto teste desc" price="30.00" button="Editar" link="../editProduct"/>
+          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar" link="../editProduct"/>
+          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar" link="../editProduct"/>
+          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar" link="../editProduct"/>
+          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Editar" link="../editProduct"/>
 
         </div>
       </div>
