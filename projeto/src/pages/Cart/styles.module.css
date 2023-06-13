@@ -42,7 +42,7 @@
   }
   
   .button {
-    width: 45%;
+    width: 100%;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: bold;
@@ -50,6 +50,10 @@
     cursor: pointer;
   }
   
+  .link {
+    width: 45%;
+  }
+
   .buyButton {
     background-color: #4caf50;
     color: #ffffff;

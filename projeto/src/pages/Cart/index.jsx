@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import ProductDetailsCart from '../../components/ProductDetailCart';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   return (
@@ -27,8 +28,8 @@ const Cart = () => {
           Total: R$ 199.98
         </div>
         <div className={styles.buttons}>
-          <button className={`${styles.button} ${styles.buyButton}`}>Finalize Buy</button>
-          <button className={`${styles.button} ${styles.continueButton}`}>Continue Buying</button>
+          <Link className={styles.link} to="../searchProducts"><button className={`${styles.button} ${styles.buyButton}`}>Finalizar compra</button></Link>
+          <Link className={styles.link} to="../searchProducts"><button className={`${styles.button} ${styles.continueButton}`}>Continuar comprando</button></Link>
         </div>
       </div>
     </div>
