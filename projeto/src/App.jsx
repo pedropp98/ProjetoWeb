@@ -15,6 +15,7 @@ import {
   Routes
 } from "react-router-dom";
 import SeeProduct from "./pages/SeeProduct";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -59,6 +60,10 @@ function App() {
           <Route
             path="/productDetails"
             element={<SeeProduct />}
+          />
+          <Route
+            path="/cart"
+            element={<Cart />}
           />
         </Routes>
       </Router>

@@ -1,0 +1,68 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .deliveryAddress {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .value {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  .totalPrice {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .buyButton {
+    background-color: #4caf50;
+    color: #ffffff;
+  }
+  
+  .continueButton {
+    background-color: #2196f3;
+    color: #ffffff;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  }
+  

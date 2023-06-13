@@ -8,6 +8,8 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { Link } from "react-router-dom";
+
 import styles from "./styles.module.css";
 
 function Header() {
@@ -29,7 +31,7 @@ function Header() {
           <a>Área do Cliente</a>
         </div>
       </div>
-      <FontAwesomeIcon icon={faCartShopping} />
+      {/* <Link to="./cart"><FontAwesomeIcon icon={faCartShopping} /></Link> */}
       <nav>
         <ul>
           <li>
