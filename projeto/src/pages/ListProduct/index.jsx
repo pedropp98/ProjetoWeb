@@ -1,5 +1,7 @@
 import Product from "../../components/Product"
 
+import { Link } from "react-router-dom";
+
 import styles from "./styles.module.css"
 
 import img1 from "../../assets/produtos/racaoGato.png"
@@ -14,7 +16,8 @@ function ListProduct() {
           <p>
             Veja e edite produtos ja cadastrados,alem de cadastrar novos produtos!
           </p>
-      <input type="button" className={styles.botao_grande} value="Cadastrar novo produto" />
+      
+          <Link to="../createProduct"><input type="button" className={styles.botao_grande} value="Cadastrar novo produto" /></Link>
         </div>
       </div>
 

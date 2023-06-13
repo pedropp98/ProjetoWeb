@@ -2,7 +2,7 @@ main {
   width: 100vw;
   margin: auto;
   max-width: 1300px;
-  margin-top: 100px
+  margin-top: 100px;
 }
 
 .conteudo {
@@ -63,6 +63,7 @@ div .padding_padrao,
   content: "";
   display: table;
   clear: both;
+  margin-bottom: 30px;
 }
 
 .botao_grande {

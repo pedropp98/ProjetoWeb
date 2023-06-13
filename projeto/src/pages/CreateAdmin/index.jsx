@@ -17,10 +17,10 @@ const AdminRegistrationForm = () => {
 
   return (
     <main>
-      <div className="container ">
-        <h1>Cadastrar Admin</h1>
-        <form className="registration-form" onSubmit={handleSubmit}>
-          <div className="form-group">
+      <div className="container">
+        <h1 className={styles.title}>Cadastrar Administrador</h1>
+        <form className={styles.registration_form} onSubmit={handleSubmit}>
+          <div className={styles.form_group}>
             <label htmlFor="name">Nome:</label>
             <input
               type="text"
@@ -30,7 +30,7 @@ const AdminRegistrationForm = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label htmlFor="email">Email:</label>
             <input
               type="email"
@@ -39,7 +39,8 @@ const AdminRegistrationForm = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <div className="form-group">
+          </div>
+          <div className={styles.form_group}>
               <label htmlFor="rg">RG:</label>
               <input
                 type="text"
@@ -49,8 +50,7 @@ const AdminRegistrationForm = () => {
                 required
               />
             </div>
-          </div>
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label htmlFor="password">Senha:</label>
             <input
               type="password"
@@ -60,7 +60,7 @@ const AdminRegistrationForm = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label htmlFor="address">Endereço:</label>
             <input
               type="text"
@@ -70,7 +70,9 @@ const AdminRegistrationForm = () => {
               required
             />
           </div>
-          <center><button type="submit">Cadastrar</button></center>
+          <div className={styles.form_group}>
+            <input type="submit" className={styles.botao_grande} value="Cadastrar Administrador" />
+          </div>
         </form>
       </div>
     </main>

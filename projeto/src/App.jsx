@@ -5,6 +5,8 @@ import CreateAdmin from "./pages/CreateAdmin";
 import EditAdmin from "./pages/EditAdmin";
 import Home from "./pages/Home";
 import ListProduct from "./pages/ListProduct";
+import EditProduct from "./pages/EditProduct";
+import CreateProduct from "./pages/CreateProduct";
 
 import {
   Route,
@@ -38,6 +40,14 @@ function App() {
           <Route
             path="/adminProducts"
             element={<ListProduct />}
+          />
+           <Route
+            path="/editProduct"
+            element={<EditProduct />}
+          />
+          <Route
+            path="/createProduct"
+            element={<CreateProduct />}
           />
         </Routes>
       </Router>
