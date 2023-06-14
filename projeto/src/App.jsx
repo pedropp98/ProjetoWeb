@@ -21,14 +21,66 @@ import SeeProduct from "./pages/SeeProduct";
 import Cart from "./pages/Cart";
 import LoginClient from "./pages/LoginClient";
 import LoginAdmin from "./pages/LoginAdmin";
+import Wrapper from "./pages/wrapper";
 
 
 function App() {
   return (
     <>
-     <Router>
+      <Router>
         <Routes>
-        <Route
+          <Route
+            index
+            element={<Wrapper><Home /></Wrapper>}
+          />
+          {/* ADMIN (tem q fazer verificacao de login)*/}
+          <Route
+            path="/admin"
+            element={<Wrapper><Admin /></Wrapper>}
+          />
+          <Route
+            path="/createAdmin"
+            element={<Wrapper><CreateAdmin /></Wrapper>}
+          />
+          <Route
+            path="/editAdmin"
+            element={<Wrapper><EditAdmin /></Wrapper>}
+          />
+          <Route
+            path="/adminProducts"
+            element={<Wrapper><ListProduct /></Wrapper>}
+          />
+          <Route
+            path="/editProduct"
+            element={<Wrapper><EditProduct /></Wrapper>}
+          />
+          <Route
+            path="/createProduct"
+            element={<Wrapper><CreateProduct /></Wrapper>}
+          />
+          {/* cliente */}
+          <Route
+            path="/searchProducts"
+            element={<Wrapper><SearchProduct /></Wrapper>}
+          />
+          <Route
+            path="/productDetails"
+            element={<Wrapper><SeeProduct /></Wrapper>}
+          />
+          <Route
+            path="/cart"
+            element={<Wrapper><Cart /></Wrapper>}
+          />
+          <Route
+            path="/createCostumer"
+            element={<CreateCostumer />}
+          />
+          <Route
+            path="/editCostumer"
+            element={<Wrapper> <EditCostumer /></Wrapper>}
+          />
+
+          <Route
             path="/loginClient"
             element={<LoginClient />}
           />
@@ -38,63 +90,6 @@ function App() {
           />
         </Routes>
       </Router>
-      
-      <Header />
-      <Router>
-        <Routes>
-          <Route
-            index
-            element={<Home/>}
-            />
-            {/* ADMIN (tem q fazer verificacao de login)*/}
-          <Route
-            path="/admin"
-            element={<Admin />}
-          />
-          <Route
-            path="/createAdmin"
-            element={<CreateAdmin />}
-          />
-          <Route
-            path="/editAdmin"
-            element={<EditAdmin />}
-          />
-          <Route
-            path="/adminProducts"
-            element={<ListProduct />}
-          />
-           <Route
-            path="/editProduct"
-            element={<EditProduct />}
-          />
-          <Route
-            path="/createProduct"
-            element={<CreateProduct />}
-          />
-          {/* cliente */}
-          <Route
-            path="/searchProducts"
-            element={<SearchProduct />}
-          />
-          <Route
-            path="/productDetails"
-            element={<SeeProduct />}
-          />
-          <Route
-            path="/cart"
-            element={<Cart />}
-          />
-          <Route
-            path="/createCostumer"
-            element={<CreateCostumer />}
-          />
-          <Route
-            path="/editCostumer"
-            element={<EditCostumer />}
-          />
-        </Routes>
-      </Router>
-      <Footer />
     </>
   );
 }
