@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .registration_form {
@@ -12,37 +11,37 @@
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
 
-h1 {
-  padding: 20px;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
+  & h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 
-label {
-  padding: 20px;
-  font-weight: bold;
-}
+  & label {
+    padding: 0 0 0 10px;
+    font-weight: bold;
+  }
 
-input {
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  width: 100%;
-}
+  & input {
+    margin: 10px;
+    padding: 10px 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+  }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
+  & button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
 }
 
 div .main {
@@ -57,10 +56,10 @@ div .main {
 }
 
 main {
-  width: 100vw;
   margin: auto;
-  max-width: 1300px; 
-  margin-top: 100px;
+  max-width: 1300px;
+  padding: 4vh 0;
+  min-height: 75vh;
 }
 
 .conteudo {
@@ -90,4 +89,3 @@ main {
   box-shadow: 0 2px 5px var(--cinza);
   transform: translateY(-5px);
 }
-

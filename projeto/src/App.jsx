@@ -73,7 +73,7 @@ function App() {
           />
           <Route
             path="/createCostumer"
-            element={<CreateCostumer />}
+            element={<Wrapper> <CreateCostumer /></Wrapper>}
           />
           <Route
             path="/editCostumer"

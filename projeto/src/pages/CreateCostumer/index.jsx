@@ -17,7 +17,7 @@ const CostumerRegistrationForm = () => {
 
   return (
     <main>
-      <div className="container">
+      <div className={styles.container}>
         <h1 className={styles.title}>Cadastrar Cliente</h1>
         <form className={styles.registration_form} onSubmit={handleSubmit}>
           <div className={styles.form_group}>
