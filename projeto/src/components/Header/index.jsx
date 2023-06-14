@@ -15,21 +15,23 @@ import styles from "./styles.module.css";
 function Header() {
   return (
     <header id={styles.header}>
-      <a href="#">
+      <Link to='/'>
         <figure>
           <img src={logo} alt="ibamaLogo" />
         </figure>
-      </a>
+      </Link>
       <div id={styles.busca}>
         <input type="text" />
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </div>
 
       <div id={styles.menuSuperior}>
-        <div>
-          <FontAwesomeIcon icon={faUser} />
-          <a>Área do Cliente</a>
-        </div>
+        <Link to='/editCostumer'>
+          <div>
+            <FontAwesomeIcon icon={faUser} />
+            <a>Ver Perfil</a>
+          </div>
+        </Link>
       </div>
       {/* <Link to="./cart"><FontAwesomeIcon icon={faCartShopping} /></Link> */}
       <nav>

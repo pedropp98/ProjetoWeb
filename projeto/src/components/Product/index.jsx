@@ -13,7 +13,7 @@ function Product(props) {
         <h3>{props.name}</h3>
         <p>{props.desc}</p>
       <div className={styles.div_botao_comprar}>
-        <span class="card_price">R$ {props.price}</span>
+        <span class="card_price">{props.price}</span>
         <br />
         <Link to={props.link}><input type="button" className={styles.botao_comprar} value={props.button} /></Link>
       </div>

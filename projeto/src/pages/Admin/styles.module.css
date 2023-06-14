@@ -9,13 +9,6 @@ div .main {
   }
 }
 
-main {
-  width: 100vw;
-  margin: auto;
-  max-width: 1300px; 
-  margin-top: 100px;
-}
-
 .conteudo {
   margin-left: auto;
   margin-right: auto;

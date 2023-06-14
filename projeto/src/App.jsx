@@ -19,66 +19,77 @@ import {
 } from "react-router-dom";
 import SeeProduct from "./pages/SeeProduct";
 import Cart from "./pages/Cart";
+import LoginClient from "./pages/LoginClient";
+import LoginAdmin from "./pages/LoginAdmin";
+import Wrapper from "./pages/wrapper";
+
 
 function App() {
   return (
     <>
-      <Header />
       <Router>
         <Routes>
           <Route
             index
-            element={<Home/>}
-            />
-            {/* ADMIN (tem q fazer verificacao de login)*/}
+            element={<Wrapper><Home /></Wrapper>}
+          />
+          {/* ADMIN (tem q fazer verificacao de login)*/}
           <Route
             path="/admin"
-            element={<Admin />}
+            element={<Wrapper><Admin /></Wrapper>}
           />
           <Route
             path="/createAdmin"
-            element={<CreateAdmin />}
+            element={<Wrapper><CreateAdmin /></Wrapper>}
           />
           <Route
             path="/editAdmin"
-            element={<EditAdmin />}
+            element={<Wrapper><EditAdmin /></Wrapper>}
           />
           <Route
             path="/adminProducts"
-            element={<ListProduct />}
+            element={<Wrapper><ListProduct /></Wrapper>}
           />
-           <Route
+          <Route
             path="/editProduct"
-            element={<EditProduct />}
+            element={<Wrapper><EditProduct /></Wrapper>}
           />
           <Route
             path="/createProduct"
-            element={<CreateProduct />}
+            element={<Wrapper><CreateProduct /></Wrapper>}
           />
           {/* cliente */}
           <Route
             path="/searchProducts"
-            element={<SearchProduct />}
+            element={<Wrapper><SearchPro2duct /></Wrapper>}
           />
           <Route
             path="/productDetails"
-            element={<SeeProduct />}
+            element={<Wrapper><SeeProduct /></Wrapper>}
           />
           <Route
             path="/cart"
-            element={<Cart />}
+            element={<Wrapper><Cart /></Wrapper>}
           />
           <Route
             path="/createCostumer"
-            element={<CreateCostumer />}
+            element={<Wrapper> <CreateCostumer /></Wrapper>}
           />
           <Route
             path="/editCostumer"
-            element={<EditCostumer />}
+            element={<Wrapper> <EditCostumer /></Wrapper>}
+          />
+
+          <Route
+            path="/loginClient"
+            element={<LoginClient />}
+          />
+          <Route
+            path="/loginAdmin"
+            element={<LoginAdmin />}
           />
         </Routes>
       </Router>
-      <Footer />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-const ProductDetailCart = () => {
+const ProductDetailCart = (product) => {
   return (
     <div className={styles.container}>
       <img
@@ -10,9 +10,9 @@ const ProductDetailCart = () => {
         className={styles.productImage}
       />
       <div className={styles.details}>
-        <div className={styles.name}>Product Name</div>
-        <div className={styles.price}>$99.99</div>
-        <div className={styles.quantity}>Quantity: 2</div>
+        <div className={styles.name}>{product.name}</div>
+        <div className={styles.price}>R$ {product.price}</div>
+        <div className={styles.quantity}>Amount: {product.amount}</div>
       </div>
     </div>
   );

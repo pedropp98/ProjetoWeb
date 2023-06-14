@@ -4,18 +4,36 @@ import { Link } from "react-router-dom";
 
 import styles from "./styles.module.css"
 
+import { useEffect, useState } from "react";
+
 import img1 from "../../assets/produtos/racaoGato.png"
 import img2 from "../../assets/produtos/aparador.webp"
 
+const dataFetch = (cb) => {
+  const data = fetch('http://localhost:3000/product')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.products);
+      cb(data.products)
+    });
+};
+
 function ListProduct() {
+
+  const [produtos, setProdutos] = useState(['test']);
+
+  useEffect(() => {
+    dataFetch((data)=>{setProdutos(data)});
+  }, []);
+
   return (
     <>
       <div>
         <div className={styles.products_title}>
           <h1>Conheça nossos produtos</h1>
           <p>
-          Temos vários itens interessantes para o seu pet! Não deixe de
-          conferir!
+            Temos vários itens interessantes para o seu pet! Não deixe de
+            conferir!
           </p>
         </div>
       </div>
@@ -32,14 +50,14 @@ function ListProduct() {
 
       <div
         className={styles.main + ' ' + styles.conteudo + ' ' + styles.padding_padrao}>
-        <div class={styles.row_padding + ' ' +  styles.center}>
+        <div class={styles.row_padding + ' ' + styles.center}>
           {/* PRODUTOS */}
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="coleira" src={img2} name="Coleira diferenciada" desc="Produto teste desc" price="30.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
+
+          {produtos.map((produto) => {
+            return (
+              <Product category={produto.category} src={produto.image} name={produto.name} desc={produto.description} price={produto.price} button="Ver detalhes" link="../productDetails" />
+            )
+          })}
 
         </div>
       </div>

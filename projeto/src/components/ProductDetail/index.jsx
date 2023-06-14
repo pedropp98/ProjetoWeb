@@ -1,32 +1,32 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-const ProductDetail = () => {
+const ProductDetail = (product) => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Product Details</h2>
       <img
-        src="https://i.pinimg.com/originals/7e/d4/6c/7ed46c55250a58a93008d25641ec1cec.jpg"
+        src={product.image}
         alt="Product"
         className={styles.productImage}
       />
       <div className={styles.details}>
         <div className={styles.label}>Nome:</div>
-        <div className={styles.value}>Caracol</div>
+        <div className={styles.value}>{product.name}</div>
       </div>
       <div className={styles.details}>
         <div className={styles.label}>Descrição:</div>
         <div className={styles.value}>
-          Imortal. Vai te perseguir pro resto da vida.
+        {product.description}
         </div>
       </div>
       <div className={styles.details}>
         <div className={styles.label}>Preço:</div>
-        <div className={styles.value}>$-10M</div>
+        <div className={styles.value}>R$ {product.price}</div>
       </div>
       <div className={styles.details}>
         <div className={styles.label}>Quantidade:</div>
-        <div className={styles.value}>1</div>
+        <div className={styles.value}>{product.quantity}</div>
       </div>
       <div className={styles.details}>
        <input type="button" className={styles.botao_grande} value="Adicionar ao carrinho" />

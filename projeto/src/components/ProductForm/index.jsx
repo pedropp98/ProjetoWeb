@@ -40,11 +40,21 @@ const ProductForm = (props) => {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="quantity">Quantidade:</label>
-          <input type="number" id="quantity" className={styles.input} value={props.quantity} />
+          <label htmlFor="amount">Quantidade:</label>
+          <input type="number" id="amount" className={styles.input} value={props.quantity} />
         </div>
 
         <div className={styles.formGroup}>
+          <label htmlFor="quantity">Categoria:</label>
+          <input type="number" id="quantity" className={styles.input} value={props.category} />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label htmlFor="quantity">Imagem:</label>
+          <input type="number" id="quantity" className={styles.input} value={props.image} />
+        </div>
+
+        {/* <div className={styles.formGroup}>
           <label htmlFor="productImage">Imagem do Produto:</label>
           <input
             type="file"
@@ -59,7 +69,7 @@ const ProductForm = (props) => {
           {productImage && (
             <img src={productImage} alt="Product" className={styles.productImage} />
           )}
-        </div>
+        </div> */}
 
         <div className={styles.formGroup}>
         <Link to="../adminProducts"><input type="submit" className={styles.botao_grande} value={props.button} /></Link>
