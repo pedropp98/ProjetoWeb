@@ -3,9 +3,34 @@ import styles from "./styles.module.css";
 import Card from "../commons/Card";
 import Button from "../commons/Button";
 
-import Products from "../../data/products";
+import History from "../../data/history";
+import ProductsRecommend from "../../data/products_recommend";
 
 const BoasVindas = () => {
+
+  // Count the occurrences of each category
+  const categoryCounts = {};
+  History.items.forEach((item) => {
+    const category = item.category;
+    if (categoryCounts[category]) {
+      categoryCounts[category]++;
+    } else {
+      categoryCounts[category] = 1;
+    }
+  });
+
+  // Find the most recurrent category
+  let mostRecurrentCategory;
+  let maxCount = 0;
+  for (const category in categoryCounts) {
+    if (categoryCounts[category] > maxCount) {
+      maxCount = categoryCounts[category];
+      mostRecurrentCategory = category;
+    }
+  }
+
+  const Products = ProductsRecommend.items.filter((item) => item.category === mostRecurrentCategory).slice(0, 3);
+  
   return (
     <div className={styles.recepcao}>
       <Card>
@@ -24,7 +49,7 @@ const BoasVindas = () => {
       <div className={styles.sugestoes}>
         <h4>Produtos escolhidos para você!</h4>
         <div className={styles.produtos}>
-          {Products.items.map((product, index) => (
+          {Products.map((product, index) => (
             <Card key={index}>
               <img src={product.image} alt={product.title} className={styles.img}/>
               <div>
