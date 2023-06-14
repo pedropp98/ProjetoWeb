@@ -26,7 +26,8 @@ div .padding_padrao,
 
 .product_img {
   padding: 5px;
-  height: 25vh;
+  height: 20vh;
+  max-width: 20vh;
 }
 
 .div_botao_comprar {
