@@ -19,10 +19,25 @@ import {
 } from "react-router-dom";
 import SeeProduct from "./pages/SeeProduct";
 import Cart from "./pages/Cart";
+import LoginClient from "./pages/LoginClient";
+import LoginAdmin from "./pages/LoginAdmin";
+
 
 function App() {
   return (
     <>
+     <Router>
+        <Routes>
+        <Route
+            path="/loginClient"
+            element={<LoginClient />}
+          />
+          <Route
+            path="/loginAdmin"
+            element={<LoginAdmin />}
+          />
+        </Routes>
+      </Router>
       <Header />
       <Router>
         <Routes>

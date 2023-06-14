@@ -1,0 +1,94 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--amarelo-claro);
+}
+
+.loginBox {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--preto-escuro);
+}
+
+.loginBox h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loginForm input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.loginForm input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.loginForm input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.loginForm button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: #f5f5f5;
+  text-align: left;
+  cursor: pointer;
+}
+
+.loginForm button:hover {
+  text-decoration: underline;
+}
+
+.admin {
+  background-color: #e0e0e0;
+}
+
+.loginBox input[type="submit"],
+.changeLogin,
+.registerLogin,
+#toggleMode {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--amarelo-escuro);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginBox.admin input[type="submit"],
+.registerLogin,
+.changeLogin,
+#toggleMode {
+  background-color: var(--preto-escuro);
+  color: var(--amarelo-claro);
+}
+
+.changeLogin,
+.registerLogin,
+#toggleMode {
+  margin-bottom: 20px;
+  color: white;
+  background-color: gray;
+}
+
+.changeLogin:hover,
+.registerLogin:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 5px var(--cinza);
+}
