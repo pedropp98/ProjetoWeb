@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 //const path = require('path');
 //const router = express.Router();
 const bodyParser = require('body-parser');
+const Admin = require('./Models/AdminModel');
+
+const adminController = require('./Controller/AdminController');
 
 dotenv.config();
 
@@ -14,7 +17,11 @@ const adminRoute = require('./Routes/AdminRoutes');
 // require('./models/orderModel');
 
 const app = express();
+app.use(express.json());
+
 const port = process.env.BACK_PORT || 3000;
+
+
 
 //const routes = require('./routes');
 
@@ -22,21 +29,42 @@ const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const dbName = process.env.DB_NAME;
 
-const url = `mongodb+srv://${dbUser}:${dbPassword}@${dbName}.cewcget.mongodb.net/?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${dbUser}:${dbPassword}@${dbName}.cewcget.mongodb.net/Administrator?retryWrites=true&w=majority`;
 
 console.log(`Database user info: ${dbUser} : ${dbPassword}`);
 
 // Connecting to database (mongoDB)
 try {
-    mongoose.connect(url, { 
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
+  mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
+  console.log('Connected to MongoDB!');
 }
 catch (err) {
-    console.log(`Error when connectiong to MongoBD! ${err}`);
-    return;
+  console.log(`Error when connectiong to MongoBD! ${err}`);
+  return;
 }
+
+app.get('/admin', adminController.get);
+
+app.post('/admin', (req, res) => {
+  console.log(`Requisicao: ${req.body}`);
+
+  const admin = new Admin({
+    nome: req.body.nome,
+  });
+
+  admin.save()
+    .then((response) => {
+      console.log(`Resposta: ${response}`);
+      res.json(response).status(200);
+    })
+    .catch((error) => {
+      console.log(`Busca por ${Admin} nao funcionou: ${error}`);
+    });
+});
 
 // var corsOptions = {
 //     origin: process.env.FRONTEND_URL,
@@ -44,10 +72,6 @@ catch (err) {
 // }
 
 //app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-//app.use(cors(corsOptions)); // Cross-Origin Resource Sharing
-app.use(express.json()); // used to parse JSON bodies
-app.use('/', adminRoute);
 
 //console.log(path.join(__dirname, 'build'));
 
@@ -80,23 +104,6 @@ app.use('/', adminRoute);
 //     });
 // });
 
-const httpServer = app.listen(port, () => {
-    console.log(`== Server listening on port ${port} ==`);
-    
-    //Attempt to avoid leaving zombie processes using port
-    process.on('beforeExit', () => httpServer.close());
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
-
-const axios = require('axios');
-
-axios.get('http://localhost:3000/')
-  .then(response => {
-    const data = response.data;
-    console.log('Dados da resposta:', data);
-    // Faça algo com os dados
-  })
-  .catch(error => {
-    console.log('Erro na requisição:', error);
-    // Lide com o erro da requisição
-  });
-

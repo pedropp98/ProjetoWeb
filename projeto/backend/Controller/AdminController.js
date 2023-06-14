@@ -7,14 +7,15 @@ exports.get = (req, res, next) => {
    console.log(`Requisicao: ${req.body}`);
 
    Admin.find()
-   .then((products) => {
-      console.log(`Resposta: ${products}`);
-      res.json(products).status(200);
-   })
-   .catch((error) => {
-      console.log(`Busca por ${Admin} nao funcionou: ${error}`);
-   });
+      .then((products) => {
+         console.log(`Resposta: ${products}`);
+         res.json(products).status(200);
+      })
+      .catch((error) => {
+         console.log(`Busca por ${Admin} nao funcionou: ${error}`);
+      });
 };
+
 
 // const axios = require('axios');
 
