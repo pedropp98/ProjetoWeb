@@ -17,10 +17,10 @@ const AdminEditForm = () => {
 
   return (
     <main>
-      <div className="container ">
+      <div className={styles.container}>
         <h1>Editar Admin</h1>
-        <form className="registration-form" onSubmit={handleSubmit}>
-          <div className="form-group">
+        <form className={styles.registration} onSubmit={handleSubmit}>
+          <div >
             <label htmlFor="name">Nome:</label>
             <input
               type="text"
@@ -30,7 +30,7 @@ const AdminEditForm = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div >
             <label htmlFor="email">Email:</label>
             <input
               type="email"
@@ -39,7 +39,7 @@ const AdminEditForm = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <div className="form-group">
+            <div >
               <label htmlFor="rg">RG:</label>
               <input
                 type="text"
@@ -50,7 +50,7 @@ const AdminEditForm = () => {
               />
             </div>
           </div>
-          <div className="form-group">
+          <div >
             <label htmlFor="password">Senha:</label>
             <input
               type="password"
@@ -60,7 +60,7 @@ const AdminEditForm = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div >
             <label htmlFor="address">Endereço:</label>
             <input
               type="text"
@@ -70,7 +70,9 @@ const AdminEditForm = () => {
               required
             />
           </div>
-          <center><button type="submit">Editar</button></center>
+          <center>
+            <button type="submit" className={styles.button} >Editar</button>
+          </center>
         </form>
       </div>
     </main>
