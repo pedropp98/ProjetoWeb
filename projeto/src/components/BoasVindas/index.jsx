@@ -26,12 +26,12 @@ const BoasVindas = () => {
         <div className={styles.produtos}>
           {Products.items.map((product, index) => (
             <Card key={index}>
-              <img src={product.image} alt={product.title} />
+              <img src={product.image} alt={product.title} className={styles.img}/>
               <div>
                 <h5>{product.title}</h5>
                 <p>{product.description}</p>
                 <p>{product.price}</p>
-                <Button>comprar!</Button>
+                <Button>Comprar!</Button>
               </div>
             </Card>
           ))}
