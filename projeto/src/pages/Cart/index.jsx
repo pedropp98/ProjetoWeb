@@ -12,7 +12,7 @@ const Cart = () => {
         <ProductDetailsCart />
         <div className={styles.deliveryAddress}>
           <div className={styles.label}>Endereço de entrega:</div>
-          <div className={styles.value}>123 Main St, City, State, ZIP</div>
+          <div className={styles.value}>Dr carlos de camargo salles, 10, Jardim Lutfalla</div>
         </div>
         <div className={styles.deliveryAddress}>
           <div className={styles.label}>Método de pagamento:</div>
