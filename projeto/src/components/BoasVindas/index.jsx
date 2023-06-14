@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from 'react';
 import styles from "./styles.module.css";
 import Card from "../commons/Card";
 import Button from "../commons/Button";
@@ -6,8 +6,11 @@ import Button from "../commons/Button";
 import History from "../../data/history";
 import ProductsRecommend from "../../data/products_recommend";
 
-const BoasVindas = () => {
+import { CartContext } from '../../pages/Cart/CartContext';  
+import { Link } from 'react-router-dom';
 
+const BoasVindas = () => {
+  const { addToCart } = useContext(CartContext);
   // Count the occurrences of each category
   const categoryCounts = {};
   History.items.forEach((item) => {
@@ -40,8 +43,8 @@ const BoasVindas = () => {
             Desejamos que consiga encontrar <b> tudo</b> que estiver à procura
           </p>
           <div className={styles.botoes}>
-            <Button>Fazer login</Button>
-            <Button>Criar conta</Button>
+          <Link to="./loginClient" className={styles.botao_grande}>Fazer Login</Link>
+          <Link to="./createCostumer" className={styles.botao_grande}>Criar Conta</Link>
           </div>
         </div>
       </Card>
@@ -56,7 +59,12 @@ const BoasVindas = () => {
                 <h5>{product.title}</h5>
                 <p>{product.description}</p>
                 <p>{product.price}</p>
-                <Button>Comprar!</Button>
+                <input
+                type="button"
+                className={styles.botao_grande}
+                value="Adicionar ao carrinho"
+                onClick={() => addToCart(product)}
+              />
               </div>
             </Card>
           ))}

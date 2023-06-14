@@ -1,18 +1,35 @@
 import React, { useState } from 'react';
 import styles from "./styles.module.css";
+import Admins from "../../data/admin";
 
 const AdminEditForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [address, setAddress] = useState('');
-  const [rg, setRg] = useState('');
+  let currentAdmin = 0;
+  const categoryCounts = {};
+
+  Admins.admins.forEach((admin) => {
+    if (admin.name === "ramon") {
+      currentAdmin = admin;
+    }
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform form submission logic here
-    // e.g., send data to server or handle validation
-    console.log('Submitted:', { name, email, password, address, rg });
+
+    // Get the updated values from the form
+    const newName = e.target.elements.name.value;
+    const newEmail = e.target.elements.email.value;
+    const newAddress = e.target.elements.address.value;
+
+    // Update the currentAdmin object with the new values
+    currentAdmin.name = newName;
+    currentAdmin.email = newEmail;
+    currentAdmin.address = newAddress;
+
+    // Update the data in localStorage
+    const updatedAdmins = JSON.stringify(Admins);
+    localStorage.setItem('Admins', updatedAdmins);
+
+    console.log(Admins); // Log the updated Admins JSON data
   };
 
   return (
@@ -20,59 +37,55 @@ const AdminEditForm = () => {
       <div className={styles.container}>
         <h1>Editar Admin</h1>
         <form className={styles.registration} onSubmit={handleSubmit}>
-          <div >
+          <div>
             <label htmlFor="name">Nome:</label>
             <input
               type="text"
               id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              defaultValue={currentAdmin.name}
               required
             />
           </div>
-          <div >
+          <div>
             <label htmlFor="email">Email:</label>
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              defaultValue={currentAdmin.email}
               required
             />
-            <div >
+            <div>
               <label htmlFor="rg">RG:</label>
               <input
+                disabled="true"
                 type="text"
                 id="rg"
-                value={rg}
-                onChange={(e) => setRg(e.target.value)}
+                defaultValue={currentAdmin.rg}
                 required
               />
             </div>
           </div>
-          <div >
+          <div>
             <label htmlFor="password">Senha:</label>
             <input
               type="password"
               id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              defaultValue=""
               required
             />
           </div>
-          <div >
+          <div>
             <label htmlFor="address">Endereço:</label>
             <input
               type="text"
               id="address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              defaultValue={currentAdmin.address}
               required
             />
           </div>
-          <center>
-            <button type="submit" className={styles.button} >Editar</button>
-          </center>
+          <div className={styles.form_group}>
+            <input type="submit" className={styles.botao_grande} value="Editar Administrador" />
+          </div>
         </form>
       </div>
     </main>

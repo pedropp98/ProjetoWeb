@@ -26,10 +26,10 @@ function Header() {
       </div>
 
       <div id={styles.menuSuperior}>
-        <Link to='/editCostumer'>
+        <Link to='/cart'>
           <div>
-            <FontAwesomeIcon icon={faUser} />
-            <a>Ver Perfil</a>
+            <FontAwesomeIcon icon={faCartShopping} />
+            <a>Ver Carrinho</a>
           </div>
         </Link>
       </div>
@@ -37,21 +37,13 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <a>
-              <FontAwesomeIcon icon={faShieldDog} /> Categorias
-            </a>
+            <Link to="../searchProducts"><a>Produtos</a></Link>
           </li>
           <li>
-            <a>Promoções</a>
+          <Link to="../loginClient"><a>Cliente</a></Link>
           </li>
           <li>
-            <a>Descontos</a>
-          </li>
-          <li>
-            <a>Silvestres</a>
-          </li>
-          <li>
-            <a>Rações</a>
+          <Link to="../loginAdmin"><a>Administrator</a></Link>
           </li>
         </ul>
       </nav>
