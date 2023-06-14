@@ -21,31 +21,12 @@ import SeeProduct from "./pages/SeeProduct";
 import Cart from "./pages/Cart";
 import LoginClient from "./pages/LoginClient";
 import LoginAdmin from "./pages/LoginAdmin";
-<<<<<<< HEAD
 import Wrapper from "./pages/wrapper";
-=======
->>>>>>> 5ad9cdf (if path)
 
 
 function App() {
   return (
     <>
-<<<<<<< HEAD
-=======
-     <Router>
-        <Routes>
-        <Route
-            path="/loginClient"
-            element={<LoginClient />}
-          />
-          <Route
-            path="/loginAdmin"
-            element={<LoginAdmin />}
-          />
-        </Routes>
-      </Router>
-      <Header />
->>>>>>> 5ad9cdf (if path)
       <Router>
         <Routes>
           <Route
