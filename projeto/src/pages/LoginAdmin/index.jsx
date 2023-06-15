@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 
-const LoginClient = () => {
+const LoginAdmin = () => {
+  const [loginError, setLoginError] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your login logic here
+    e.preventDefault(); // Prevent the default form submission behavior
+
+    // Get the values of email and password fields
+    const email = document.getElementsByName('email')[0].value;
+    const password = document.getElementsByName('password')[0].value;
+
+    // Verify email and password
+    if (email === 'ramon@gmail.com' && password === '123') {
+      // Show success message
+      alert('Logado com sucesso!');
+      window.location.href = '/admin';
+
+      // You can also redirect using window.location.href if needed
+    } else {
+      // Show an alert if the email or password is incorrect
+      alert('Usuario ou senha incorretos')
+    }
   };
 
   return (
@@ -13,8 +29,8 @@ const LoginClient = () => {
       <div className={styles.loginBox}>
         <h2>Login Administrador</h2>
         <form id="loginForm" onSubmit={handleSubmit}>
-          <input type="text" placeholder="Email" name="email" required />
-          <input type="password" placeholder="Password" name="password" required />
+          <input className={styles.input_form} type="text" placeholder="Email" name="email" required />
+          <input className={styles.input_form} type="password" placeholder="Password" name="password" required />
           <input type="submit" className={styles.changeLogin} value="Login" />
           <input type="button" className={styles.changeLogin} value="Registre-se" />
         </form>
@@ -23,4 +39,4 @@ const LoginClient = () => {
   );
 };
 
-export default LoginClient;
+export default LoginAdmin;

@@ -37,21 +37,13 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <a>
-              <FontAwesomeIcon icon={faShieldDog} /> Categorias
-            </a>
+            <Link to="./searchProducts"><a>Produtos</a></Link>
           </li>
           <li>
-            <a>Promoções</a>
+          <Link to="./loginClient"><a>Cliente</a></Link>
           </li>
           <li>
-            <a>Descontos</a>
-          </li>
-          <li>
-            <a>Silvestres</a>
-          </li>
-          <li>
-            <a>Rações</a>
+            <a>Administrador</a>
           </li>
         </ul>
       </nav>

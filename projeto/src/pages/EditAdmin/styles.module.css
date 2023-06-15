@@ -70,3 +70,20 @@ div .main {
   margin-right: auto;
   max-width: 980px;
 }
+
+.botao_grande {
+  font-size: 1.2rem;
+  border-radius: 7px;
+  background-color: var(--amarelo-claro);
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  color: var(--preto-claro);
+  margin: 0px 5px;
+  transition: 0.3s;
+}
+
+.botao_grande:hover {
+  box-shadow: 0 2px 5px var(--cinza);
+  transform: translateY(-5px);
+}
