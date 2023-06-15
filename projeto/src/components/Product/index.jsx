@@ -12,6 +12,7 @@ function Product(props) {
         />
         <h3>{props.name}</h3>
         <p>{props.desc}</p>
+        <p><b>Categoria:</b> {props.category}</p>
       <div className={styles.div_botao_comprar}>
         <span class="card_price">R$ {props.price}</span>
         <br />

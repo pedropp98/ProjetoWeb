@@ -1,46 +1,53 @@
-import Product from "../../components/Product"
-
-import { Link } from "react-router-dom";
-
-import styles from "./styles.module.css"
-
-import img1 from "../../assets/produtos/racaoGato.png"
-import img2 from "../../assets/produtos/aparador.webp"
+import React, { useState } from 'react';
+import Product from "../../components/Product";
+import Products from "../../data/products";
+import styles from "./styles.module.css";
 
 function ListProduct() {
+  const [selectedCategory, setSelectedCategory] = useState('todos');
+
+  const handleFilterChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
+  const filteredProducts = selectedCategory === 'todos'
+    ? Products.items
+    : Products.items.filter(product => product.category === selectedCategory);
+
   return (
     <>
       <div>
         <div className={styles.products_title}>
           <h1>Conheça nossos produtos</h1>
-          <p>
-          Temos vários itens interessantes para o seu pet! Não deixe de
-          conferir!
-          </p>
+          <p>Temos vários itens interessantes para o seu pet! Não deixe de conferir!</p>
         </div>
       </div>
 
       <div className={styles.filter_container + ' ' + styles.select_filter}>
         <label htmlFor="products-filter">Filtrar por:</label>
-        <select id="products-filter">
+        <select id="products-filter" value={selectedCategory} onChange={handleFilterChange}>
           <option value="todos">Todos</option>
           <option value="racao">Ração</option>
-          <option value="coleira">Coleira</option>
           <option value="brinquedo">Brinquedo</option>
+          <option value="outros">Outros</option>
         </select>
       </div>
 
-      <div
-        className={styles.main + ' ' + styles.conteudo + ' ' + styles.padding_padrao}>
-        <div class={styles.row_padding + ' ' +  styles.center}>
+      <div className={styles.main + ' ' + styles.conteudo + ' ' + styles.padding_padrao}>
+        <div className={styles.row_padding + ' ' + styles.center}>
           {/* PRODUTOS */}
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="coleira" src={img2} name="Coleira diferenciada" desc="Produto teste desc" price="30.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-          <Product category="racao" src={img1} name="Racao" desc="Produto teste desc" price="20.00" button="Ver detalhes" link="../productDetails"/>
-
+          {filteredProducts.map((product, index) => (
+            <Product
+              key={index}
+              category={product.category}
+              src={product.image}
+              name={product.name}
+              desc={product.description}
+              price={product.price}
+              button="Ver detalhes"
+              link={"../productDetails?id=" + product.id}
+            />
+          ))}
         </div>
       </div>
     </>
