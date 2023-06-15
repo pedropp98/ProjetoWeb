@@ -57,6 +57,7 @@
   .buyButton {
     background-color: #4caf50;
     color: #ffffff;
+    width: 50%;
   }
   
   .continueButton {

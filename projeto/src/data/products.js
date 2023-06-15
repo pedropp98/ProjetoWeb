@@ -11,7 +11,7 @@ const Products = {
       image: racaoGato,
       title: "Ração de Gato",
       description: "Wiskas sache",
-      price: "R$ 50,00",
+      price: 50.00,
       category: "racao",
       quantity: 100
     },
@@ -20,7 +20,7 @@ const Products = {
       image: racao,
       title: "Ração para pitbull",
       description: "Ideal para o seu amigo Thor de 39kgs",
-      price: "R$ 25,80",
+      price: 25.80,
       category: "racao",
       quantity: 23
     },
@@ -29,7 +29,7 @@ const Products = {
       image: tucano,
       title: "Tucano de brinquedo",
       description: "Belo e exótico",
-      price: "R$ 80,00",
+      price: 80.00,
       category: "brinquedo",
       quantity: 40
     },
@@ -38,7 +38,7 @@ const Products = {
       image: peixe,
       title: "Peixe de aquario",
       description: "Para botar na caixa d'água",
-      price: "R$ 30,00",
+      price: 30.00,
       category: "outros",
       quantity: 50
     },
