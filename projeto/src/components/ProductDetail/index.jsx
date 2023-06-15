@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './styles.module.css';
 import Products from "../../data/products";
+import { CartContext } from '../../pages/Cart/CartContext';
 
 const ProductDetail = () => {
+  const { addToCart } = useContext(CartContext);
   const id = window.location.href.split("?id=")[1];
   const product = Products.items.filter((item) => item.id == id)[0];
   console.log(product);
@@ -33,7 +35,12 @@ const ProductDetail = () => {
         <div className={styles.label}>Quantidade:</div>
         <div className={styles.value}>{product.quantity}</div>
       </div>
-       <input type="button" className={styles.botao_grande} value="Adicionar ao carrinho" />
+      <input
+        type="button"
+        className={styles.botao_grande}
+        value="Adicionar ao carrinho"
+        onClick={() => addToCart(product)}
+      />
     </div>
   );
 };

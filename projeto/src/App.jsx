@@ -1,85 +1,85 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Admin from "./pages/Admin";
-import CreateAdmin from "./pages/CreateAdmin";
-import EditAdmin from "./pages/EditAdmin";
-import Home from "./pages/Home";
-import ListProduct from "./pages/ListProduct";
-import EditProduct from "./pages/EditProduct";
-import CreateProduct from "./pages/CreateProduct";
-import SearchProduct from "./pages/SearchProduct";
-import CreateCostumer from "./pages/CreateCostumer";
-import EditCostumer from "./pages/EditCostumer";
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Admin from './pages/Admin';
+import CreateAdmin from './pages/CreateAdmin';
+import EditAdmin from './pages/EditAdmin';
+import Home from './pages/Home';
+import ListProduct from './pages/ListProduct';
+import EditProduct from './pages/EditProduct';
+import CreateProduct from './pages/CreateProduct';
+import SearchProduct from './pages/SearchProduct';
+import CreateCostumer from './pages/CreateCostumer';
+import EditCostumer from './pages/EditCostumer';
+import SeeProduct from './pages/SeeProduct';
+import Cart from './pages/Cart';
+import LoginClient from './pages/LoginClient';
+import LoginAdmin from './pages/LoginAdmin';
+import Wrapper from './pages/wrapper';
 
-
-import {
-  Route,
-  BrowserRouter as Router,
-  Routes
-} from "react-router-dom";
-import SeeProduct from "./pages/SeeProduct";
-import Cart from "./pages/Cart";
-import LoginClient from "./pages/LoginClient";
-import LoginAdmin from "./pages/LoginAdmin";
-import Wrapper from "./pages/wrapper";
-
+import { CartProvider } from './pages/Cart/CartContext';
 
 function App() {
+  const shouldShowHeaderFooter = (pathname) => {
+    return !(pathname === '/loginClient' || pathname === '/loginAdmin');
+  };
+
   return (
-    <>
+    <CartProvider>
       <Router>
+        {shouldShowHeaderFooter(window.location.pathname) && <Header />}
         <Routes>
           <Route
             index
-            element={<Wrapper><Home /></Wrapper>}
+            element={<Home />}
           />
           {/* ADMIN (tem q fazer verificacao de login)*/}
           <Route
             path="/admin"
-            element={<Wrapper><Admin /></Wrapper>}
+            element={<Admin />}
           />
           <Route
             path="/createAdmin"
-            element={<Wrapper><CreateAdmin /></Wrapper>}
+            element={<CreateAdmin />}
           />
           <Route
             path="/editAdmin"
-            element={<Wrapper><EditAdmin /></Wrapper>}
+            element={<EditAdmin />}
           />
           <Route
             path="/adminProducts"
-            element={<Wrapper><ListProduct /></Wrapper>}
+            element={<ListProduct />}
           />
           <Route
             path="/editProduct"
-            element={<Wrapper><EditProduct /></Wrapper>}
+            element={<EditProduct />}
           />
           <Route
             path="/createProduct"
-            element={<Wrapper><CreateProduct /></Wrapper>}
+            element={<CreateProduct />}
           />
           {/* cliente */}
           <Route
             path="/searchProducts"
-            element={<Wrapper><SearchProduct /></Wrapper>}
+            element={<SearchProduct />}
           />
           <Route
             path="/productDetails"
-            element={<Wrapper><SeeProduct /></Wrapper>}
+            element={<SeeProduct />}
           />
           <Route
             path="/cart"
-            element={<Wrapper><Cart /></Wrapper>}
+            element={<Cart />}
           />
           <Route
             path="/createCostumer"
-            element={<Wrapper> <CreateCostumer /></Wrapper>}
+            element={<CreateCostumer />}
           />
           <Route
             path="/editCostumer"
-            element={<Wrapper> <EditCostumer /></Wrapper>}
+            element={<EditCostumer />}
           />
-
           <Route
             path="/loginClient"
             element={<LoginClient />}
@@ -89,8 +89,9 @@ function App() {
             element={<LoginAdmin />}
           />
         </Routes>
+        {shouldShowHeaderFooter(window.location.pathname) && <Footer />}
       </Router>
-    </>
+    </CartProvider>
   );
 }
 
