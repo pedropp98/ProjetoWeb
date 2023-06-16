@@ -21,64 +21,59 @@ import Wrapper from './pages/wrapper';
 import { CartProvider } from './pages/Cart/CartContext';
 
 function App() {
-  const shouldShowHeaderFooter = (pathname) => {
-    return !(pathname === '/loginClient' || pathname === '/loginAdmin');
-  };
-
   return (
     <CartProvider>
       <Router>
-        {shouldShowHeaderFooter(window.location.pathname) && <Header />}
         <Routes>
           <Route
             index
-            element={<Home />}
+            element={<Wrapper><Home /></Wrapper>}
           />
           {/* ADMIN (tem q fazer verificacao de login)*/}
           <Route
             path="/admin"
-            element={<Admin />}
+            element={<Wrapper><Admin /></Wrapper>}
           />
           <Route
             path="/createAdmin"
-            element={<CreateAdmin />}
+            element={<Wrapper><CreateAdmin /></Wrapper>}
           />
           <Route
             path="/editAdmin"
-            element={<EditAdmin />}
+            element={<Wrapper><EditAdmin /></Wrapper>}
           />
           <Route
             path="/adminProducts"
-            element={<ListProduct />}
+            element={<Wrapper><ListProduct /></Wrapper>}
           />
           <Route
             path="/editProduct"
-            element={<EditProduct />}
+            element={<Wrapper><EditProduct /></Wrapper>}
           />
           <Route
             path="/createProduct"
-            element={<CreateProduct />}
+            element={<Wrapper><CreateProduct /></Wrapper>}
           />
           {/* cliente */}
           <Route
             path="/searchProducts"
-            element={<SearchProduct />}
+            element={<Wrapper><SearchProduct /></Wrapper>}
           />
           <Route
             path="/productDetails"
-            element={<SeeProduct />}
+            element={<Wrapper><SeeProduct /></Wrapper>}
           />
           <Route
             path="/cart"
-            element={<Cart />}
+            element={<Wrapper><Cart /></Wrapper>}
           />
           <Route
             path="/createCostumer"
-            element={<CreateCostumer />}
+            element={<Wrapper><CreateCostumer /></Wrapper>}
           />
           <Route
             path="/editCostumer"
-            element={<EditCostumer />}
+            element={<Wrapper><EditCostumer /></Wrapper>}
           />
           <Route
             path="/loginClient"
@@ -89,7 +84,6 @@ function App() {
             element={<LoginAdmin />}
           />
         </Routes>
-        {shouldShowHeaderFooter(window.location.pathname) && <Footer />}
       </Router>
     </CartProvider>
   );
