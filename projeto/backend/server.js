@@ -5,10 +5,14 @@ const AdminRoutes = require('./Routes/AdminRoutes')
 const ClientRoutes = require('./Routes/ClientRoutes')
 const OrderRoutes = require('./Routes/OrderRoutes')
 const ProductRoutes = require('./Routes/ProductRoutes')
+const cors = require('cors')
 
 dotenv.config();
 
 const app = express();
+app.use(cors({
+  origin: '*'
+}))
 app.use(express.json());
 app.use(AdminRoutes);
 app.use(ClientRoutes);

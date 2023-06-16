@@ -21,9 +21,14 @@ import Wrapper from './pages/wrapper';
 import { CartProvider } from './pages/Cart/CartContext';
 
 function App() {
+  const shouldShowHeaderFooter = (pathname) => {
+    return !(pathname === '/loginClient' || pathname === '/loginAdmin');
+  };
+
   return (
     <CartProvider>
       <Router>
+        {shouldShowHeaderFooter(window.location.pathname) && <Header />}
         <Routes>
           <Route
             index
@@ -83,7 +88,16 @@ function App() {
             path="/loginAdmin"
             element={<LoginAdmin />}
           />
+          <Route
+            path="/loginClient"
+            element={<LoginClient />}
+          />
+          <Route
+            path="/loginAdmin"
+            element={<LoginAdmin />}
+          />
         </Routes>
+        {shouldShowHeaderFooter(window.location.pathname) && <Footer />}
       </Router>
     </CartProvider>
   );

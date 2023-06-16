@@ -8,7 +8,8 @@ exports.get = (req, res) => {
    Product.find()
       .then((products) => {
          console.log(`Resposta: ${products}`);
-         res.json(products).status(200);
+         const response = {products};
+         res.json(response).status(200);
       })
       .catch((error) => {
          console.log(`Busca por ${Product} nao funcionou: ${error}`);
