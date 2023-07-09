@@ -16,6 +16,23 @@ exports.get = (req, res) => {
       });
 };
 
+exports.get = (req, res) => {
+   const id = req.params.id;
+ 
+   Product.findById(id)
+     .then((data) => {
+       if (!data) {
+         return res.status(404).json({ error: 'Data not found' });
+       }
+ 
+       res.json(data).status(200);
+     })
+     .catch((error) => {
+       console.error('Error:', error);
+       res.status(500).json({ error: 'Internal server error' });
+     });
+ };
+
 exports.post = (req, res) => {
    console.log(`Requisicao POST: ${req.body}`);
 
