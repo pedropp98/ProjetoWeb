@@ -52,20 +52,38 @@ exports.post = async (req, res) => {
          .catch((error) => {
             console.log(`Cadastro de: ${Product} nao funcionou: ${error}`);
          });
+
+      exports.updateProducts(req, res);
+      
    }
    catch(error){
       console.log(error);
    }
 };
 
-exports.updateProducts = (req, res) => {
-   console.log(`Requisicao POST: ${req.body}`);
-   
-   try{
+exports.updateProducts = async (req, res) => {
+   console.log(`Requisicao PUT: ${req.body}`);
 
+   const order = req.body;
+
+   try{
+      await Promise.all(
+         order.products.map(async (product) => {
+            const {id, amount} = product;
+            console.log(`id: ${id} amount: ${amount}`);
+            await Product.findById(id)
+               .then((foundProduct) => {
+                  foundProduct.amount -= amount;
+                  return foundProduct.save();
+               })
+               .catch((error) => {
+                  throw error;
+               });
+         })
+      );
    }
    catch(error){
-
+      throw error;
    }
 };
 
