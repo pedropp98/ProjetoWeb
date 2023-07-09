@@ -2,7 +2,7 @@
 
 const Product = require('../Models/ProductModel');
 
-exports.get = (req, res) => {
+exports.getAll = (req, res) => {
    console.log(`Requisicao GET: ${req.body}`);
 
    Product.find()
@@ -16,7 +16,7 @@ exports.get = (req, res) => {
       });
 };
 
-exports.get = (req, res) => {
+exports.getOneById = (req, res) => {
    const id = req.params.id;
  
    Product.findById(id)
