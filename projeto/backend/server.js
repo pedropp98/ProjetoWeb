@@ -25,7 +25,7 @@ const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const dbName = process.env.DB_NAME;
 
-const url = `mongodb+srv://${dbUser}:${dbPassword}@${dbName}.cewcget.mongodb.net/Administrator?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${dbUser}:${dbPassword}@${dbName}.ps3ecct.mongodb.net/?retryWrites=true&w=majority`;
 
 console.log(`Database user info: ${dbUser} : ${dbPassword}`);
 
