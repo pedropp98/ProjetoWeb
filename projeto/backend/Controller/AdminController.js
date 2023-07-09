@@ -15,6 +15,23 @@ exports.get = (req, res) => {
       });
 };
 
+exports.get = (req, res) => {
+   const id = req.params.id;
+ 
+   Admin.findById(id)
+     .then((data) => {
+       if (!data) {
+         return res.status(404).json({ error: 'Data not found' });
+       }
+ 
+       res.json(data).status(200);
+     })
+     .catch((error) => {
+       console.error('Error:', error);
+       res.status(500).json({ error: 'Internal server error' });
+     });
+ };
+
 exports.post = (req, res) => {
    console.log(`Requisicao POST: ${req.body}`);
  
@@ -35,26 +52,26 @@ exports.post = (req, res) => {
 };
 
 exports.put = (req, res) => {
-   const nomeAntigo = req.body.nomeAntigo; // Nome antigo a ser buscado
-   const novoNome = req.body.novoNome; // Novo nome para atualização
+   const id = req.params.id;
+   console.log(`Requisicao GET: ${req.body} ID: ${id}`);
  
-   Admin.findOneAndUpdate(
-     { nome: nomeAntigo }, // Critério de busca
-     { nome: novoNome }, // Valores atualizados
-   )
-     .then((adminAtualizado) => {
-       if (adminAtualizado) {
-         console.log('Dado atualizado com sucesso:', adminAtualizado);
-         res.json(adminAtualizado).status(200);
-       } else {
-         console.log('Dado não encontrado');
-         res.status(404).send('Dado não encontrado');
-       }
-     })
-     .catch((error) => {
-       console.log('Erro ao atualizar o dado:', error);
-       res.status(500).send('Erro ao atualizar o dado');
-     });
+   const updateProduct = {
+      name: req.body.name,
+      slug: req.body.slug,
+      description: req.body.description,
+      price: req.body.price,
+      quantity: req.body.quantity
+   };
+
+   Products.findByIdAndUpdate(id, updateProduct, {new : true})
+      .then(updateProduct => {
+         console.log(`Produto atualizado: ${updateProduct}`);
+         res.json(updateProduct).status(200);
+      })
+      .catch(error => {
+         console.log(`Erro atualizando o produto: ${error}`);
+         res.status(500).json({error: 'Erro atualizando o produto'});
+      })
  };
 
 exports.delete = (req, res) => {
