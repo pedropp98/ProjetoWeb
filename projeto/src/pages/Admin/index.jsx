@@ -24,7 +24,7 @@ function Admin() {
           <div class={styles.row_padding + ' ' +  styles.center}>
           <CardAdmin name="Cadastrar Administradores" desc="Adicione novos administradores ao seu sistema!" src={admin_img} button="Cadastrar" link="../createAdmin"/>
           <CardAdmin name="Editar cadastro" desc="Edite os seus dados pessoais informados no cadastro!" src={editar_img} button="Editar" link="../editAdmin"/> 
-          <CardAdmin name="Ver Produtos" desc="Veja e edite e cadastre os produtos do sistema!" src={produtos_img} button="Ver Produtos"/> 
+          <CardAdmin name="Ver Produtos" desc="Veja e edite e cadastre os produtos do sistema!" src={produtos_img} button="Ver Produtos" link="../adminProducts"/> 
           </div>
           </div>
         </main>      

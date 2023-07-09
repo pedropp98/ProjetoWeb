@@ -1,12 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './styles.module.css';
-import Products from "../../data/products";
 import { CartContext } from '../../pages/Cart/CartContext';
+
+const dataFetch = (cb) => {
+  const id = window.location.href.split("?id=")[1];
+  
+  const data = fetch('http://localhost:3000/product/' + id)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      cb(data);
+    });
+};
 
 const ProductDetail = () => {
   const { addToCart } = useContext(CartContext);
-  const id = window.location.href.split("?id=")[1];
-  const product = Products.items.filter((item) => item.id == id)[0];
+
+  const [product, setProducts] = useState([]);
+
+  useEffect(() => {
+    dataFetch((fetchedProducts) => {
+      setProducts(fetchedProducts);
+    });
+  }, []);
+
   console.log(product);
 
   return (
@@ -33,7 +50,7 @@ const ProductDetail = () => {
       </div>
       <div className={styles.details}>
         <div className={styles.label}>Quantidade:</div>
-        <div className={styles.value}>{product.quantity}</div>
+        <div className={styles.value}>{product.amount}</div>
       </div>
       <input
         type="button"

@@ -9,14 +9,14 @@ export const CartProvider = ({ children }) => {
     // Check if the product is already in the cart
     const existingProduct = cartItems.find((item) => item.id === product.id);
     if (existingProduct) {
-      // If the product is already in the cart, update the quantity
+      // If the product is already in the cart, update the amount
       const updatedCartItems = cartItems.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === product.id ? { ...item, amount: item.amount + 1 } : item
       );
       setCartItems(updatedCartItems);
     } else {
-      // If the product is not in the cart, add it with quantity 1
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      // If the product is not in the cart, add it with amount 1
+      setCartItems([...cartItems, { ...product, amount: 1 }]);
     }
     // window.location.href = '../cart';
   };
@@ -29,9 +29,9 @@ export const CartProvider = ({ children }) => {
   const increaseAmount = (productId, newAmount) => {
     const updatedCartItems = cartItems.map((item) => {
       if (item.id === productId) {
-        // Check if the new amount exceeds the product's quantity
-        const quantity = item.quantity + 1;
-        return { ...item, quantity };
+        // Check if the new amount exceeds the product's amount
+        const amount = item.amount + 1;
+        return { ...item, amount };
       }
       return item;
     });
@@ -41,8 +41,8 @@ export const CartProvider = ({ children }) => {
   const decreaseAmount = (productId) => {
     const updatedCartItems = cartItems.map((item) => {
       if (item.id === productId) {
-        const newQuantity = Math.max(item.quantity - 1, 0);
-        return { ...item, quantity: newQuantity };
+        const newamount = Math.max(item.amount - 1, 0);
+        return { ...item, amount: newamount };
       }
       return item;
     });
@@ -50,16 +50,49 @@ export const CartProvider = ({ children }) => {
   };
 
   const calculateTotalValue = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce((total, item) => total + item.price * item.amount, 0);
   };
 
-  const finalizeShopping = () => {
-    // Logic for finalizing the shopping (e.g., clearing the cart, processing payment, etc.)
-    if(cartItems.length > 0) {
-      alert("Compra finalizada com sucesso!");
+  const finalizeShopping = async () => {
+    if (cartItems.length > 0) {
+      try {
+        // Prepare the data for the request
+        const user = "41224d776a326fb40f000001" //getSessionUserId(); // Replace with your logic to get the user ID from session
+        const products = cartItems.map((item) => ({
+          id: item._id,
+          amount: item.amount,
+        }));
+
+        const body = JSON.stringify({
+          client: user,
+          products: products,
+        });
+
+        console.log(body);
+
+        // Make the POST request
+        const response = await fetch('http://localhost:3000/order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: body,
+        });
+
+        if (response.ok) {
+          alert('Compra finalizada com sucesso!');
+          setCartItems([]);
+        } else {
+          alert('Ocorreu um erro ao finalizar a compra. Por favor, tente novamente.');
+        }
+      } catch (error) {
+        console.error('Error finalizing shopping:', error);
+        alert('Ocorreu um erro ao finalizar a compra. Por favor, tente novamente.');
+      }
     }
-    setCartItems([]);
   };
+
+  // ...
 
   return (
     <CartContext.Provider

@@ -1,19 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Product from "../../components/Product";
-import Products from "../../data/products";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 
+const dataFetch = (cb) => {
+  const data = fetch('http://localhost:3000/product')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.products);
+      cb(data.products);
+    });
+};
+
 function ListProduct() {
   const [selectedCategory, setSelectedCategory] = useState('todos');
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    dataFetch((fetchedProducts) => {
+      setProducts(fetchedProducts);
+    });
+  }, []);
 
   const handleFilterChange = (e) => {
     setSelectedCategory(e.target.value);
   };
 
   const filteredProducts = selectedCategory === 'todos'
-    ? Products.items
-    : Products.items.filter(product => product.category === selectedCategory);
+    ? products
+    : products.items.filter(product => product.category === selectedCategory);
 
   return (
     <>
@@ -44,16 +59,16 @@ function ListProduct() {
           {/* PRODUTOS */}
           <div className={styles.row_padding + ' ' + styles.center}>
           {/* PRODUTOS */}
-          {filteredProducts.map((product, index) => (
+          {filteredProducts.map((product) => (
             <Product
-              key={index}
+              key={product._id}
               category={product.category}
               src={product.image}
               name={product.name}
               desc={product.description}
               price={product.price}
-              button="Ver detalhes"
-              link={"../productDetails?id=" + product.id}
+              button="Editar"
+              link={"../editProduct?id=" + product._id}
             />
           ))}
         </div>

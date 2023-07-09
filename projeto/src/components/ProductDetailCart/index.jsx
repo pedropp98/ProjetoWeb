@@ -22,7 +22,7 @@ const ProductDetailCart = ({ product, onRemove, onIncreaseAmount, onDecreaseAmou
           <button onClick={onIncreaseAmount} className={styles.decreaseButton}>
             +
           </button>
-          Amount: {product.quantity}
+          Amount: {product.amount}
         </div>
         <button onClick={onRemove} className={styles.removeButton}>
           Remove

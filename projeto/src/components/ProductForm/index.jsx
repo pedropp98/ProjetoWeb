@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
 
-import { Link } from "react-router-dom";
-
 const ProductForm = (props) => {
-
   const [productImage, setProductImage] = useState(null);
+
+  const handleEditProduct = (event) => {
+    alert("Editado com sucesso");
+    window.location.href = "/adminProducts";
+  }
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -41,17 +43,17 @@ const ProductForm = (props) => {
 
         <div className={styles.formGroup}>
           <label htmlFor="amount">Quantidade:</label>
-          <input type="number" id="amount" className={styles.input} value={props.quantity} />
+          <input type="number" id="amount" className={styles.input} value={props.amount} />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="quantity">Categoria:</label>
-          <input type="number" id="quantity" className={styles.input} value={props.category} />
+          <label htmlFor="category">Categoria:</label>
+          <input type="number" id="category" className={styles.input} value={props.category} />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="quantity">Imagem:</label>
-          <input type="number" id="quantity" className={styles.input} value={props.image} />
+          <label htmlFor="image">Imagem:</label>
+          <input type="number" id="image" className={styles.input} value={props.image} />
         </div>
 
         {/* <div className={styles.formGroup}>
@@ -72,7 +74,9 @@ const ProductForm = (props) => {
         </div> */}
 
         <div className={styles.formGroup}>
-        <Link to="../adminProducts"><input type="submit" className={styles.botao_grande} value={props.button} /></Link>
+        <button className={`${styles.botao_grande} ${styles.buyButton}`} onClick={handleEditProduct}>
+            {props.button}
+          </button>
         </div>
       </form>
     </div>
