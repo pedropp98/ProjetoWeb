@@ -2,12 +2,24 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-var order = new Schema({
-   nome:{
-      type : String,
-      required : false
-   }
-});
+const order = new mongoose.Schema({
+   client: {
+      type : mongoose.Schema.Types.ObjectId,
+      required : true   
+   },
+   products: [
+      {
+         id : {
+            type : mongoose.Schema.Types.ObjectId,
+            required : true
+         },
+         amount : {
+            type : Number,
+            required : true
+         }
+      }
+   ]
+ });
 
 const Order = mongoose.model('Order', order);
 

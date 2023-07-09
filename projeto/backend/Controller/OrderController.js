@@ -1,6 +1,7 @@
 'use strict';
 
 const Order = require('../Models/OrderModel');
+const Product = require('../Models/ProductModel');
 
 exports.get = (req, res) => {
    console.log(`Requisicao GET: ${req.body}`);
@@ -15,23 +16,57 @@ exports.get = (req, res) => {
       });
 };
 
-exports.post = (req, res) => {
+exports.post = async (req, res) => {
    console.log(`Requisicao POST: ${req.body}`);
- 
-   console.log(`Nome: ${req.body.nome}`);
+   const order = req.body;
    
-   const order = new Order({
-     nome: req.body.nome,
-   });
- 
-   order.save()
-      .then((response) => {
-         console.log(`Resposta: ${response}`);
-         res.json(response).status(200);
+   try{
+      const products = await Promise.all(
+         order.products.map(async (product) => {
+            const {id, amount} = product;
+            console.log(`id: ${id} amount: ${amount}`);
+            const storedProduct = await Product.findById(id).lean();
+
+            console.log(`stored-id: ${storedProduct.id} stored-amount: ${storedProduct.amount}`);
+
+            if(!storedProduct){
+               res.status(404);
+               throw new Error("Produto nao cadastrado, hacker fdp")
+            }
+            if(amount > storedProduct.amount){
+               throw new Error("Ta comprando muito item, nao tem estoque nao, burgues fdp");
+            }
+         })
+      );
+      
+      const newOrder = new Order({
+         client : req.body.client,
+         products : req.body.products
       })
-      .catch((error) => {
-         console.log(`Busca por ${Order} nao funcionou: ${error}`);
-      });
+
+      newOrder.save()
+         .then((response) => {
+            console.log(`Resposta: ${response}`);
+            res.json(response).status(200);
+         })
+         .catch((error) => {
+            console.log(`Cadastro de: ${Product} nao funcionou: ${error}`);
+         });
+   }
+   catch(error){
+      console.log(error);
+   }
+};
+
+exports.updateProducts = (req, res) => {
+   console.log(`Requisicao POST: ${req.body}`);
+   
+   try{
+
+   }
+   catch(error){
+
+   }
 };
 
 exports.put = (req, res) => {
