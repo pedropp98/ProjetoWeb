@@ -6,6 +6,26 @@ var client = new Schema({
    nome:{
       type : String,
       required : false
+   },
+   email : {
+      type : String,
+      required : true
+   },
+   rg : {
+      type : String,
+      required : true
+   },
+   senha : {
+      type : String,
+      required : true
+   },
+   endereco : {
+      type : String,
+      required : false
+   },
+   password : {
+      type : String,
+      required : true
    }
 });
 

@@ -20,17 +20,31 @@ exports.post = (req, res) => {
  
    console.log(`Nome: ${req.body.nome}`);
    
-   const client = new Client({
-     nome: req.body.nome,
-   });
+   const { nome, email, rg, senha, endereco, password } = req.body;
+
+  // Validate the required fields
+  if (!email || !rg || !senha || !password) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  // Create a new user
+  const newUser = new User({
+    nome,
+    email,
+    rg,
+    senha,
+    endereco,
+    password,
+  });
+
  
-   client.save()
+  newUser.save()
       .then((response) => {
          console.log(`Resposta: ${response}`);
          res.json(response).status(200);
       })
       .catch((error) => {
-         console.log(`Busca por ${Client} nao funcionou: ${error}`);
+         console.log(`Cadastro de: ${newUser} nao funcionou: ${error}`);
       });
 };
 
