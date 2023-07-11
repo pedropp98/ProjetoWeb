@@ -18,22 +18,25 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
    console.log(`Requisicao POST: ${req.body}`);
  
-   console.log(`Nome: ${req.body.nome}`);
+   console.log(`Nome: ${req.body.name}`);
+   console.log(`email: ${req.body.email}`);
+   console.log(`rg: ${req.body.rg}`);
+   console.log(`address: ${req.body.address}`);
+   console.log(`pass: ${req.body.password}`);
    
-   const { nome, email, rg, senha, endereco, password } = req.body;
+   const { name, email, rg, address, password } = req.body;
 
   // Validate the required fields
-  if (!email || !rg || !senha || !password) {
+  if (!email || !rg || !password) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
   // Create a new user
-  const newUser = new User({
-    nome,
+  const newUser = new Client({
+    name,
     email,
     rg,
-    senha,
-    endereco,
+    address,
     password,
   });
 

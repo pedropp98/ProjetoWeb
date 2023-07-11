@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var client = new Schema({
-   nome:{
+   name:{
       type : String,
       required : false
    },
@@ -15,11 +15,7 @@ var client = new Schema({
       type : String,
       required : true
    },
-   senha : {
-      type : String,
-      required : true
-   },
-   endereco : {
+   address : {
       type : String,
       required : false
    },
