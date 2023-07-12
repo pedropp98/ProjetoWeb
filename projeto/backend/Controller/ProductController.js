@@ -62,13 +62,10 @@ exports.put = (req, res) => {
 
    console.log(`id: ${id} payload: ${payload}`);
 
-  // Validate if the provided resource ID is a valid ObjectId
    if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ error: 'Invalid resource ID' });
    }
 
-   // Your logic to find the resource by ID and handle the payload
-   // Replace this with your own implementation
    Product.findByIdAndUpdate(id, payload, { new: true })
       .then(updatedResource => {
          if (!updatedResource) {
@@ -95,7 +92,6 @@ exports.delete = (req, res) => {
       return res.status(400).json({ error: 'Invalid resource ID' });
    }
 
-   // Lógica para remover o dado do banco de dados com o ID fornecido
    Product.findByIdAndDelete({_id : id})
       .then(deletedData => {
          if (deletedData) {
