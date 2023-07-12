@@ -5,24 +5,48 @@ import { Link } from "react-router-dom";
 const LoginAdmin = () => {
   const [loginError, setLoginError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
     // Get the values of email and password fields
     const email = document.getElementsByName('email')[0].value;
     const password = document.getElementsByName('password')[0].value;
 
-    // Verify email and password
-    if (email === 'ramon@gmail.com' && password === '123') {
-      // Show success message
+    const loginData = {
+      email: email,
+      password: password,
+    }
+
+    const body = JSON.stringify(loginData);
+
+    const response = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: body,
+    });
+
+    response.json().then(data => console.log(data));
+
+    if(response.ok) {
       alert('Logado com sucesso!');
       window.location.href = '/admin';
-
-      // You can also redirect using window.location.href if needed
-    } else {
-      // Show an alert if the email or password is incorrect
+    }else{
       alert('Usuario ou senha incorretos')
     }
+
+    // // Verify email and password
+    // if (email === 'ramon@gmail.com' && password === '123') {
+    //   // Show success message
+    //   alert('Logado com sucesso!');
+    //   window.location.href = '/admin';
+
+    //   // You can also redirect using window.location.href if needed
+    // } else {
+    //   // Show an alert if the email or password is incorrect
+    //   alert('Usuario ou senha incorretos')
+    // }
   };
 
   return (

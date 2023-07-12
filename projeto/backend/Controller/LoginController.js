@@ -40,14 +40,15 @@ const login = async (req, res) => {
      // Find the user in the database based on their email
    try{
       
-      if(authenticateUser(userLogin.email, userLogin.password)){
+      if(await authenticateUser(userLogin.email, userLogin.password)){
+         console.log('User logged in');
          req.session.user = {
             id : userLogin.email,
          };
-         res.send({message: 'Logged in'});
+         res.status(200).send({message: 'Logged in'});
       }
       else{
-         res.status(401).send('Unauthorized');
+         res.status(401).send();
       }
 
       //req.logout(); // Assuming you're using passport's req.logout() method
@@ -72,13 +73,14 @@ const authenticateUser = async (username, password) => {
    try {
      // Find the user in the database by username
      const user = await Client.findOne({ username });
- 
+ console.log(user);
      if (user) {
        // Compare the provided password with the hashed password stored in the database
        const isPasswordValid = await user.comparePassword(password);
  
        return isPasswordValid;
      }
+     console.log('wazzup');
  
      return false; // User not found
    } catch (error) {

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import styles from './styles.module.css';
 import { CartContext } from '../../pages/Cart/CartContext';
 
+import noImage from "../../assets/no-image-icon.png";
+
 const dataFetch = (cb) => {
   const id = window.location.href.split("?id=")[1];
   
@@ -33,6 +35,8 @@ const ProductDetail = () => {
         src={product.image}
         alt="Product"
         className={styles.productImage}
+        onError={(e) => {(e.target.src !== noImage) ? e.target.src = noImage : '' }}
+
       />
       <div className={styles.details}>
         <div className={styles.label}>Nome:</div>

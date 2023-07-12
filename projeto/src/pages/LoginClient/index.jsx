@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const LoginClient = () => {
   const [loginError, setLoginError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
     // Get the values of email and password fields
