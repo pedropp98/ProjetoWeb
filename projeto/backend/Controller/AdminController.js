@@ -1,6 +1,7 @@
 'use strict';
 
 const Admin = require('../Models/AdminModel');
+const mongoose = require('mongoose');
 
 exports.get = (req, res) => {
    console.log(`Requisicao GET: ${req.body}`);
