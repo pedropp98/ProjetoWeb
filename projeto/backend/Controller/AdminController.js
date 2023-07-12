@@ -56,7 +56,7 @@ exports.put = (req, res) => {
    console.log(`Requisicao GET: ${req.body} ID: ${id}`);
  
    const updateProduct = {
-      name: req.body.name,
+      title: req.body.title,
       slug: req.body.slug,
       description: req.body.description,
       price: req.body.price,
