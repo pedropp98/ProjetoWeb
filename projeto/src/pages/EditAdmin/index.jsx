@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./styles.module.css";
-import Admins from "../../data/admin";
 
-const AdminEditForm = () => {
-  let currentAdmin = 0;
-  const categoryCounts = {};
+const AdminEdit = () => {
+  const [admin, setAdmin] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  Admins.admins.forEach((admin) => {
-    if (admin.name === "ramon") {
-      currentAdmin = admin;
-    }
-  });
+  useEffect(() => {
+    fetch('http://localhost:3000/admin/64ae575e3ac04da4fc53e677')
+      .then(response => response.json())
+      .then(data => {
+        setAdmin(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error retrieving admin data:', error);
+        setLoading(false);
+      });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,17 +26,40 @@ const AdminEditForm = () => {
     const newEmail = e.target.elements.email.value;
     const newAddress = e.target.elements.address.value;
 
-    // Update the currentAdmin object with the new values
-    currentAdmin.name = newName;
-    currentAdmin.email = newEmail;
-    currentAdmin.address = newAddress;
+    // Create the updated admin object
+    const updatedAdmin = {
+      ...admin,
+      name: newName,
+      email: newEmail,
+      address: newAddress
+    };
 
-    // Update the data in localStorage
-    const updatedAdmins = JSON.stringify(Admins);
-    localStorage.setItem('Admins', updatedAdmins);
-
-    console.log(Admins); // Log the updated Admins JSON data
+    // Make a PUT request to update the admin data
+    fetch('http://localhost:3000/admin/64ae575e3ac04da4fc53e677', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedAdmin)
+    })
+      .then(response => {
+        if (response.ok) {
+          alert('Admin atualizado com sucesso!');
+          // Handle success, e.g., show a success message or redirect to another page
+        } else {
+          alert('Ocorreu um erro, tente novamente.');
+          // Handle error, e.g., show an error message
+        }
+      })
+      .catch(error => {
+        console.error('Error updating admin:', error);
+        alert('Ocorreu um erro, tente novamente.');
+      });
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <main>
@@ -42,7 +71,7 @@ const AdminEditForm = () => {
             <input
               type="text"
               id="name"
-              defaultValue={currentAdmin.name}
+              defaultValue={admin?.name || ''}
               required
             />
           </div>
@@ -51,27 +80,17 @@ const AdminEditForm = () => {
             <input
               type="email"
               id="email"
-              defaultValue={currentAdmin.email}
+              defaultValue={admin?.email || ''}
               required
             />
-            <div>
-              <label htmlFor="rg">RG:</label>
-              <input
-                disabled="true"
-                type="text"
-                id="rg"
-                defaultValue={currentAdmin.rg}
-                required
-              />
-            </div>
           </div>
           <div>
-            <label htmlFor="password">Senha:</label>
+            <label htmlFor="rg">RG:</label>
             <input
-              type="password"
-              id="password"
-              defaultValue=""
-              required
+              type="text"
+              id="rg"
+              defaultValue={admin?.rg || ''}
+              disabled
             />
           </div>
           <div>
@@ -79,7 +98,7 @@ const AdminEditForm = () => {
             <input
               type="text"
               id="address"
-              defaultValue={currentAdmin.address}
+              defaultValue={admin?.address || ''}
               required
             />
           </div>
@@ -92,4 +111,4 @@ const AdminEditForm = () => {
   );
 };
 
-export default AdminEditForm;
+export default AdminEdit;

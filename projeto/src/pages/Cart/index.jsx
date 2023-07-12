@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
 const Cart = () => {
+
   const {
     cartItems,
     calculateTotalValue,

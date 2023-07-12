@@ -32,22 +32,23 @@ const AdminRegistrationForm = () => {
         });
 
         if (response.ok) {
-          alert('admin created successfully!');
-          // Handle success, e.g., show a success message or redirect to another page
+          alert('Administrador criado com sucesso!');
+          window.location.href = '../admin';
+          // Tratar sucesso, por exemplo, exibir uma mensagem de sucesso ou redirecionar para outra página
         } else {
-          alert('An error occurred while creating the admin. Please try again.');
-          // Handle error, e.g., show an error message
+          alert('Ocorreu um erro ao criar o administrador. Por favor, tente novamente.');
+          // Tratar erro, por exemplo, exibir uma mensagem de erro
         }
-      } catch (error) {
-        console.error('Error creating admin:', error);
-        alert('An error occurred while creating the admin. Please try again.');
-      }
+        } catch (error) {
+          console.error('Erro ao criar o administrador:', error);
+          alert('Ocorreu um erro ao criar o administrador. Por favor, tente novamente.');
+        }        
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createClient();
+    createAdmin();
   };
 
   return (

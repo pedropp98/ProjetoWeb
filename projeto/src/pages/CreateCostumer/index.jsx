@@ -9,11 +9,15 @@ const CostumerRegistrationForm = () => {
   const [rg, setRg] = useState('');
 
   const createClient = async () => {
-    if (name) {
+    if (name && email && password) {
       try {
         // Prepare the data for the request
         const clientData = {
-          nome: name,
+          name: name,
+          email: email,
+          password: password,
+          address: address,
+          rg: rg,
         };
 
         const body = JSON.stringify(clientData);
@@ -44,6 +48,7 @@ const CostumerRegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createClient();
+    window.location.href = '../searchProducts';
   };
 
   return (

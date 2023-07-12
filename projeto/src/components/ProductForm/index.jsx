@@ -34,15 +34,16 @@ const ProductForm = (props) => {
       });
 
       if (response.ok) {
-        alert('Product created successfully!');
+        alert('Produto cadastrado com sucesso!');
+        window.location.href = "../adminProducts"
         // Handle success, e.g., show a success message or redirect to another page
       } else {
-        alert('An error occurred while creating the product. Please try again.');
+        alert('Ocorreu um erro, tente novamente');
         // Handle error, e.g., show an error message
       }
     } catch (error) {
       console.error('Error creating product:', error);
-      alert('An error occurred while creating the product. Please try again.');
+      alert('Ocorreu um erro, tente novamente');
     }
   };
 
@@ -89,7 +90,7 @@ const ProductForm = (props) => {
         <div className={styles.formGroup}>
           <label htmlFor="price">Preço:</label>
           <input
-            type="number"
+            type="text"
             id="price"
             className={styles.input}
             value={price}

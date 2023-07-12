@@ -18,7 +18,8 @@ export const CartProvider = ({ children }) => {
       // If the product is not in the cart, add it with amount 1
       setCartItems([...cartItems, { ...product, amount: 1 }]);
     }
-    // window.location.href = '../cart';
+    alert("Produto adicionado com sucesso!")
+    //window.location.href = '../cart';
   };
 
   const removeFromCart = (productId) => {
@@ -41,7 +42,7 @@ export const CartProvider = ({ children }) => {
   const decreaseAmount = (productId) => {
     const updatedCartItems = cartItems.map((item) => {
       if (item._id === productId) {
-        const newamount = Math.max(item.amount - 1, 0);
+        const newamount = Math.max(item.amount - 1, 1);
         return { ...item, amount: newamount };
       }
       return item;

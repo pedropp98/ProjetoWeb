@@ -84,3 +84,7 @@ label {
   transform: translateY(-5px);
   box-shadow: 0 2px 5px var(--cinza);
 }
+
+.imaage {
+  max-width: 200px;
+}

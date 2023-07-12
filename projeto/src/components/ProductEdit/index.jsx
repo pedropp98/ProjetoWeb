@@ -69,6 +69,28 @@ const ProductEdit = (props) => {
     }
   };
 
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    
+    try {
+      const response = await fetch(`http://localhost:3000/product/${id}`, {
+        method: 'DELETE'
+      });
+  
+      if (response.ok) {
+        alert('Produto apagado com sucesso!');
+        window.location.href = '/adminProducts'
+        // Handle success, e.g., show a success message or redirect to another page
+      } else {
+        alert('Ocorreu um erro, por favor tente novamente.');
+        // Handle error, e.g., show an error message
+      }
+    } catch (error) {
+      console.error('Erro apagando produto:', error);
+      alert('Ocorreu um erro, por favor tente novamente.');
+    }
+  };  
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -159,18 +181,23 @@ const ProductEdit = (props) => {
           />
         </div>
 
-        <div className={styles.imageContainer}>
+        <div className={styles.imageContainer + ' ' + styles.imaage}>
           {image && (
-            <img src={image} alt="Product" className={styles.image} />
+            <img src={image} alt="Product" className={styles.image + ' ' + styles.imaage} />
           )}
         </div>
 
         <div className={styles.formGroup}>
+        <br />
           <button type="submit" className={`${styles.botao_grande} ${styles.buyButton}`}>
             {props.button}
           </button>
         </div>
       </form>
+      <br />
+      <button type="button" onClick={handleDelete} className={`${styles.botao_grande} ${styles.buyButton}`}>
+        Apagar
+      </button>
     </div>
   );
 };
