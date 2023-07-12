@@ -1,6 +1,7 @@
 'use strict';
 
 const Product = require('../Models/ProductModel');
+const mongoose = require('mongoose');
 
 exports.getAll = (req, res) => {
    console.log(`Requisicao GET: ${req.body}`);
@@ -18,19 +19,31 @@ exports.getAll = (req, res) => {
 
 exports.getOneById = (req, res) => {
    const id = req.params.id;
+   const payload = req.body;
+
+   console.log(`id: ${id} payload: ${payload}`);
+
+   if(mongoose.Types.ObjectId.isValid(id)){
+      return res.status(400).json({ error: 'Invalid resource ID' });
+   }
  
-   Product.findById(id)
-     .then((data) => {
-       if (!data) {
-         return res.status(404).json({ error: 'Data not found' });
-       }
- 
-       res.json(data).status(200);
-     })
-     .catch((error) => {
-       console.error('Error:', error);
-       res.status(500).json({ error: 'Internal server error' });
-     });
+   Product.findByIdAndUpdate(id, payload, { new: true })
+    .then(updatedResource => {
+      if (!updatedResource) {
+        return res.status(404).json({ error: 'Resource not found' });
+      }
+
+      const response = {
+        message: `Resource with ID ${resourceId} updated successfully`,
+        data: updatedResource
+      };
+
+      res.json(response);
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    });
  };
 
 exports.post = (req, res) => {
@@ -56,25 +69,35 @@ exports.post = (req, res) => {
 };
 
 exports.put = (req, res) => {
-   const nomeAntigo = req.body.nomeAntigo; // Nome antigo a ser buscado
-   const novoNome = req.body.novoNome; // Novo nome para atualização
+   const id = req.params.id;
+   const payload = req.body;
  
-   Product.findOneAndUpdate(
-     { nome: nomeAntigo }, // Critério de busca
-     { nome: novoNome }, // Valores atualizados
-   )
-     .then((productAtualizado) => {
-       if (productAtualizado) {
-         console.log('Dado atualizado com sucesso:', productAtualizado);
-         res.json(productAtualizado).status(200);
-       } else {
-         console.log('Dado não encontrado');
-         res.status(404).send('Dado não encontrado');
+   // Your logic to find the resource by ID and handle the payload
+   // Replace this with your own implementation
+   Product.findById(id)
+     .then(resource => {
+       if (!resource) {
+         return res.status(404).json({ error: 'Resource not found' });
        }
+ 
+       // Update the resource with the payload data
+       resource.name = payload.name;
+       resource.description = payload.description;
+ 
+       // Save the updated resource
+       return resource.save();
      })
-     .catch((error) => {
-       console.log('Erro ao atualizar o dado:', error);
-       res.status(500).send('Erro ao atualizar o dado');
+     .then(updatedResource => {
+       const response = {
+         message: `Resource with ID ${id} updated successfully`,
+         data: updatedResource
+       };
+ 
+       res.json(response);
+     })
+     .catch(error => {
+       console.error('Error occurred:', error);
+       res.status(500).json({ error: 'Internal server error' });
      });
  };
 
