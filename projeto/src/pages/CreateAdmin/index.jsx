@@ -8,11 +8,46 @@ const AdminRegistrationForm = () => {
   const [address, setAddress] = useState('');
   const [rg, setRg] = useState('');
 
+  const createAdmin = async () => {
+    if (name && email && password) {
+      try {
+        // Prepare the data for the request
+        const adminData = {
+          nome: name,
+          email: email,
+          password: password,
+          address: address,
+          rg: rg,
+        };
+
+        const body = JSON.stringify(adminData);
+
+        // Make the POST request
+        const response = await fetch('http://localhost:3000/admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: body,
+        });
+
+        if (response.ok) {
+          alert('admin created successfully!');
+          // Handle success, e.g., show a success message or redirect to another page
+        } else {
+          alert('An error occurred while creating the admin. Please try again.');
+          // Handle error, e.g., show an error message
+        }
+      } catch (error) {
+        console.error('Error creating admin:', error);
+        alert('An error occurred while creating the admin. Please try again.');
+      }
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform form submission logic here
-    // e.g., send data to server or handle validation
-    console.log('Submitted:', { name, email, password, address, rg });
+    createClient();
   };
 
   return (

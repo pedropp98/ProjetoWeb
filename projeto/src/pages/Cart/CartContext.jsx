@@ -7,11 +7,11 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     // Check if the product is already in the cart
-    const existingProduct = cartItems.find((item) => item.id === product.id);
+    const existingProduct = cartItems.find((item) => item._id === product._id);
     if (existingProduct) {
       // If the product is already in the cart, update the amount
       const updatedCartItems = cartItems.map((item) =>
-        item.id === product.id ? { ...item, amount: item.amount + 1 } : item
+        item._id === product._id ? { ...item, amount: item.amount + 1 } : item
       );
       setCartItems(updatedCartItems);
     } else {
@@ -22,13 +22,13 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (productId) => {
-    const updatedCartItems = cartItems.filter((item) => item.id !== productId);
+    const updatedCartItems = cartItems.filter((item) => item._id !== productId);
     setCartItems(updatedCartItems);
   };
 
   const increaseAmount = (productId, newAmount) => {
     const updatedCartItems = cartItems.map((item) => {
-      if (item.id === productId) {
+      if (item._id === productId) {
         // Check if the new amount exceeds the product's amount
         const amount = item.amount + 1;
         return { ...item, amount };
@@ -40,7 +40,7 @@ export const CartProvider = ({ children }) => {
 
   const decreaseAmount = (productId) => {
     const updatedCartItems = cartItems.map((item) => {
-      if (item.id === productId) {
+      if (item._id === productId) {
         const newamount = Math.max(item.amount - 1, 0);
         return { ...item, amount: newamount };
       }

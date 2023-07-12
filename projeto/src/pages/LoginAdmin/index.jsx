@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
+import { Link } from "react-router-dom";
 
 const LoginAdmin = () => {
   const [loginError, setLoginError] = useState(false);
@@ -32,7 +33,7 @@ const LoginAdmin = () => {
           <input className={styles.input_form} type="text" placeholder="Email" name="email" required />
           <input className={styles.input_form} type="password" placeholder="Password" name="password" required />
           <input type="submit" className={styles.changeLogin} value="Login" />
-          <input type="button" className={styles.changeLogin} value="Registre-se" />
+          <Link to='/createAdmin'><input type="button" className={styles.changeLogin} value="Registre-se" /></Link>
         </form>
       </div>
     </div>

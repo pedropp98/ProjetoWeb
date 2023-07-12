@@ -10,7 +10,7 @@ function Product(props) {
           className={styles.product_img}
           src={props.src}
         />
-        <h3>{props.name}</h3>
+        <h3>{props.title}</h3>
         <p>{props.desc}</p>
         <p><b>Categoria:</b> {props.category}</p>
       <div className={styles.div_botao_comprar}>

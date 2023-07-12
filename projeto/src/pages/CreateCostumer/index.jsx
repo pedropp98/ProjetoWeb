@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
 
 const CostumerRegistrationForm = () => {
   const [name, setName] = useState('');
@@ -8,11 +8,42 @@ const CostumerRegistrationForm = () => {
   const [address, setAddress] = useState('');
   const [rg, setRg] = useState('');
 
+  const createClient = async () => {
+    if (name) {
+      try {
+        // Prepare the data for the request
+        const clientData = {
+          nome: name,
+        };
+
+        const body = JSON.stringify(clientData);
+
+        // Make the POST request
+        const response = await fetch('http://localhost:3000/client', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: body,
+        });
+
+        if (response.ok) {
+          alert('Client created successfully!');
+          // Handle success, e.g., show a success message or redirect to another page
+        } else {
+          alert('An error occurred while creating the client. Please try again.');
+          // Handle error, e.g., show an error message
+        }
+      } catch (error) {
+        console.error('Error creating client:', error);
+        alert('An error occurred while creating the client. Please try again.');
+      }
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform form submission logic here
-    // e.g., send data to server or handle validation
-    console.log('Submitted:', { name, email, password, address, rg });
+    createClient();
   };
 
   return (
