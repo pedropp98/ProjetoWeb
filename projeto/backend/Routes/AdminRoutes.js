@@ -6,7 +6,7 @@ const controller = require('../Controller/AdminController');
 
 router.get('/admin', controller.get);
 router.post('/admin', controller.post);
-router.put('/admin', controller.put);
+router.put('/admin/:id', controller.put);
 router.delete('/admin', controller.delete);
 
 module.exports = router; 
