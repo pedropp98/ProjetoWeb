@@ -18,10 +18,11 @@ var product = new Schema({
    price : {
       type : String,
       required : false,
+      default : "0.00"
    },
    category : {
       type : String,
-      required : false,
+      required : true,
    },
    amount : {
       type : Number,

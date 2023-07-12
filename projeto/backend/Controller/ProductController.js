@@ -91,15 +91,19 @@ exports.put = (req, res) => {
 exports.delete = (req, res) => {
    const id = req.params.id;
 
+   if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid resource ID' });
+   }
+
    // Lógica para remover o dado do banco de dados com o ID fornecido
-   Product.findOneAndDelete({})
+   Product.findByIdAndDelete({_id : id})
       .then(deletedData => {
          if (deletedData) {
-         console.log('Dado removido com sucesso:', deletedData);
-         res.send('Dado removido com sucesso');
+            console.log('Dado removido com sucesso:', deletedData);
+            res.send('Dado removido com sucesso');
          } else {
-         console.log('Dado não encontrado');
-         res.status(404).send('Dado não encontrado');
+            console.log('Dado não encontrado');
+            res.status(404).send('Dado não encontrado');
          }
       })
       .catch(error => {
