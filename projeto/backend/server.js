@@ -6,7 +6,7 @@ const ClientRoutes = require('./Routes/ClientRoutes');
 const OrderRoutes = require('./Routes/OrderRoutes');
 const ProductRoutes = require('./Routes/ProductRoutes');
 const LoginRoutes = require('./Routes/LoginRoutes');
-const Startup = require('./MiddleWare/Startup')
+//const Startup = require('./MiddleWare/Startup')
 const passport = require('passport');
 const cookieParser = require("cookie-parser");
 
