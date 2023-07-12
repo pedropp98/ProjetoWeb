@@ -1,6 +1,7 @@
 'use strict';
 
 const Product = require('../Models/ProductModel');
+const mongoose = require('mongoose');
 
 exports.getAll = (req, res) => {
    console.log(`Requisicao GET: ${req.body}`);
@@ -56,33 +57,35 @@ exports.post = (req, res) => {
 };
 
 exports.put = (req, res) => {
-   const nomeAntigo = req.body.nomeAntigo; // Nome antigo a ser buscado
    const id = req.params.id;
    const payload = req.body;
 
    console.log(`id: ${id} payload: ${payload}`);
 
-   if(mongoose.Types.ObjectId.isValid(id)){
+  // Validate if the provided resource ID is a valid ObjectId
+   if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ error: 'Invalid resource ID' });
    }
- 
+
+   // Your logic to find the resource by ID and handle the payload
+   // Replace this with your own implementation
    Product.findByIdAndUpdate(id, payload, { new: true })
-    .then(updatedResource => {
-      if (!updatedResource) {
-        return res.status(404).json({ error: 'Resource not found' });
-      }
+      .then(updatedResource => {
+         if (!updatedResource) {
+         return res.status(404).json({ error: 'Resource not found' });
+         }
 
-      const response = {
-        message: `Resource with ID ${resourceId} updated successfully`,
-        data: updatedResource
-      };
+         const response = {
+         message: `Resource with ID ${id} updated successfully`,
+         data: updatedResource
+         };
 
-      res.json(response);
-    })
-    .catch(error => {
-      console.error('Error occurred:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    });
+         res.json(response);
+      })
+      .catch(error => {
+         console.error('Error occurred:', error);
+         res.status(500).json({ error: 'Internal server error' });
+      });
  };
 
 exports.delete = (req, res) => {
