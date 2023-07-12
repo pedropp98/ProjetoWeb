@@ -7,8 +7,8 @@ const OrderRoutes = require('./Routes/OrderRoutes');
 const ProductRoutes = require('./Routes/ProductRoutes');
 const LoginRoutes = require('./Routes/LoginRoutes');
 //const Startup = require('./MiddleWare/Startup')
-const passport = require('passport');
-const cookieParser = require("cookie-parser");
+//const passport = require('passport');
+//const cookieParser = require("cookie-parser");
 
 
 const cors = require('cors')
@@ -29,7 +29,7 @@ app.use(ClientRoutes);
 app.use(OrderRoutes);
 app.use(ProductRoutes);
 app.use(LoginRoutes);
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(
   session({
     genid:(req) => {
@@ -60,8 +60,8 @@ app.use(
   })
 );
 
-app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 
 const port = process.env.BACK_PORT || 3000;
