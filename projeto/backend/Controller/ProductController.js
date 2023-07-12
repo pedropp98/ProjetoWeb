@@ -1,7 +1,6 @@
 'use strict';
 
 const Product = require('../Models/ProductModel');
-const mongoose = require('mongoose');
 
 exports.getAll = (req, res) => {
    console.log(`Requisicao GET: ${req.body}`);
@@ -18,6 +17,46 @@ exports.getAll = (req, res) => {
 };
 
 exports.getOneById = (req, res) => {
+   const id = req.params.id;
+ 
+   Product.findById(id)
+     .then((data) => {
+       if (!data) {
+         return res.status(404).json({ error: 'Data not found' });
+       }
+ 
+       res.json(data).status(200);
+     })
+     .catch((error) => {
+       console.error('Error:', error);
+       res.status(500).json({ error: 'Internal server error' });
+     });
+ };
+
+exports.post = (req, res) => {
+   console.log(`Requisicao POST: ${req.body}`);
+
+   const product = new Product({
+      image : req.body.image,
+      title : req.body.title,
+      description : req.body.description,
+      price : req.body.price,
+      category : req.body.category,
+      amount : req.body.amount,
+   });
+ 
+   product.save()
+      .then((response) => {
+         console.log(`Resposta: ${response}`);
+         res.json(response).status(200);
+      })
+      .catch((error) => {
+         console.log(`Busca por ${Product} nao funcionou: ${error}`);
+      });
+};
+
+exports.put = (req, res) => {
+   const nomeAntigo = req.body.nomeAntigo; // Nome antigo a ser buscado
    const id = req.params.id;
    const payload = req.body;
 
@@ -44,61 +83,6 @@ exports.getOneById = (req, res) => {
       console.error('Error occurred:', error);
       res.status(500).json({ error: 'Internal server error' });
     });
- };
-
-exports.post = (req, res) => {
-   console.log(`Requisicao POST: ${req.body}`);
-
-   const product = new Product({
-      image : req.body.image,
-      title : req.body.title,
-      description : req.body.description,
-      price : req.body.price,
-      category : req.body.category,
-      amount : req.body.amount,
-   });
- 
-   product.save()
-      .then((response) => {
-         console.log(`Resposta: ${response}`);
-         res.json(response).status(200);
-      })
-      .catch((error) => {
-         console.log(`Busca por ${Product} nao funcionou: ${error}`);
-      });
-};
-
-exports.put = (req, res) => {
-   const id = req.params.id;
-   const payload = req.body;
- 
-   // Your logic to find the resource by ID and handle the payload
-   // Replace this with your own implementation
-   Product.findById(id)
-     .then(resource => {
-       if (!resource) {
-         return res.status(404).json({ error: 'Resource not found' });
-       }
- 
-       // Update the resource with the payload data
-       resource.name = payload.name;
-       resource.description = payload.description;
- 
-       // Save the updated resource
-       return resource.save();
-     })
-     .then(updatedResource => {
-       const response = {
-         message: `Resource with ID ${id} updated successfully`,
-         data: updatedResource
-       };
- 
-       res.json(response);
-     })
-     .catch(error => {
-       console.error('Error occurred:', error);
-       res.status(500).json({ error: 'Internal server error' });
-     });
  };
 
 exports.delete = (req, res) => {
