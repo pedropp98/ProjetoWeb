@@ -1,11 +1,11 @@
-import ProductForm from "../../components/ProductForm"
+import ProductEdit from "../../components/ProductEdit"
 
 function EditProduct() {
   return (
     <>
     <main>
       <div className="container ">
-      <ProductForm title="Editar Produto" button="Editar"/>
+      <ProductEdit title="Editar Produto" button="Editar"/>
       </div>
     </main>
     </>

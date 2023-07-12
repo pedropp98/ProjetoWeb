@@ -28,6 +28,7 @@ const Cart = () => {
 
   const handleFinalizeShopping = () => {
     finalizeShopping();
+    window.location.href = '/searchProducts';
   };
 
   return (
@@ -39,10 +40,10 @@ const Cart = () => {
           <ProductDetailsCart
             key={index}
             product={item}
-            onRemove={() => handleRemoveFromCart(item.id)}
-            onChangeAmount={(newAmount) => handleChangeAmount(item.id, newAmount)}
-            onDecreaseAmount={() => handleDecreaseAmount(item.id)}
-            onIncreaseAmount={() => handleIncreaseAmount(item.id)}
+            onRemove={() => handleRemoveFromCart(item._id)}
+            onChangeAmount={(newAmount) => handleChangeAmount(item._id, newAmount)}
+            onDecreaseAmount={() => handleDecreaseAmount(item._id)}
+            onIncreaseAmount={() => handleIncreaseAmount(item._id)}
           />
         ))}
         <div className={styles.deliveryAddress}>

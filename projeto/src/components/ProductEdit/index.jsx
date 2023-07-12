@@ -1,32 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
-const productImg = '/src/assets/produtos/onca.jfif'
 
-const ProductForm = (props) => {
-  const [productImage, setProductImage] = useState(null);
-  const [name, setName] = useState('');
+const dataFetch = (cb) => {
+  const id = window.location.href.split("?id=")[1];
+  const data = fetch('http://localhost:3000/product/' + id)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("DATA", data);
+      cb(data);
+    });
+};
+
+const ProductEdit = (props) => {
+  const id = window.location.href.split("?id=")[1];
+  const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
+  const [image, setImage] = useState('');
+
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    dataFetch((fetchedProduct) => {
+      setProduct(fetchedProduct);
+      setTitle(fetchedProduct.title);
+      setDescription(fetchedProduct.description);
+      setPrice(fetchedProduct.price);
+      setAmount(fetchedProduct.amount);
+      setCategory(fetchedProduct.category);
+      setImage(fetchedProduct.image);
+    });
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const productData = {
-        name: name,
+        title: title,
         description: description,
         price: price,
         amount: amount,
         category: category,
-        image: productImg,
       };
 
       const body = JSON.stringify(productData);
 
-      const response = await fetch('http://localhost:3000/product', {
-        method: 'POST',
+      const response = await fetch(`http://localhost:3000/product/${id}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -34,15 +57,15 @@ const ProductForm = (props) => {
       });
 
       if (response.ok) {
-        alert('Product created successfully!');
+        alert('Product updated successfully!');
         // Handle success, e.g., show a success message or redirect to another page
       } else {
-        alert('An error occurred while creating the product. Please try again.');
+        alert('An error occurred while updating the product. Please try again.');
         // Handle error, e.g., show an error message
       }
     } catch (error) {
-      console.error('Error creating product:', error);
-      alert('An error occurred while creating the product. Please try again.');
+      console.error('Error updating product:', error);
+      alert('An error occurred while updating the product. Please try again.');
     }
   };
 
@@ -51,7 +74,7 @@ const ProductForm = (props) => {
     const reader = new FileReader();
 
     reader.onload = () => {
-      setProductImage(reader.result);
+      setImage(reader.result);
     };
 
     if (file) {
@@ -67,10 +90,10 @@ const ProductForm = (props) => {
           <label htmlFor="name">Nome:</label>
           <input
             type="text"
-            id="name"
+            id="title"
             className={styles.input}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             required
           />
         </div>
@@ -117,28 +140,29 @@ const ProductForm = (props) => {
             className={styles.select}
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            required>
-            <option value="">Selecione a categoria</option>
+            required
+          >
             <option value="racao">Ração</option>
             <option value="brinquedo">Brinquedo</option>
             <option value="outros">Outros</option>
           </select>
         </div>
 
-
         <div className={styles.formGroup}>
-          <label htmlFor="productImage">Imagem do Produto:</label>
+          <label htmlFor="image">Imagem do Produto:</label>
           <input
             type="file"
-            id="productImage"
+            id="image"
             className={styles.input}
-            src={productImage}
+            src={image}
             onChange={handleImageChange}
           />
         </div>
 
-        <div className={styles.productImageContainer}>
-          {productImage && <img src={productImage} alt="Product" className={styles.productImage} />}
+        <div className={styles.imageContainer}>
+          {image && (
+            <img src={image} alt="Product" className={styles.image} />
+          )}
         </div>
 
         <div className={styles.formGroup}>
@@ -151,4 +175,4 @@ const ProductForm = (props) => {
   );
 };
 
-export default ProductForm;
+export default ProductEdit;

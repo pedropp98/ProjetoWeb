@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
+import { Link } from "react-router-dom";
 
 const LoginClient = () => {
   const [loginError, setLoginError] = useState(false);
@@ -32,7 +33,7 @@ const LoginClient = () => {
           <input className={styles.input_form} type="text" placeholder="Email" name="email" required />
           <input className={styles.input_form} type="password" placeholder="Password" name="password" required />
           <input type="submit" className={styles.changeLogin} value="Login" />
-          <input type="button" className={styles.changeLogin} value="Registre-se" />
+          <Link to='/createCostumer'><input type="button" className={styles.changeLogin} value="Registre-se" /></Link>
         </form>
         {loginError && <p style={{ color: 'red' }}>Username or password is incorrect.</p>}
       </div>
