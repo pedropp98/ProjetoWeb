@@ -44,8 +44,7 @@ const login = async (req, res) => {
          req.session.user = {
             id : userLogin.email,
          };
-
-         res.send('Logged in');
+         res.send({message: 'Logged in'});
       }
       else{
          res.status(401).send('Unauthorized');
@@ -62,7 +61,7 @@ const user = (req, res) => {
    if (req.session && req.session.user) {
       // Session is active, user is logged in
       const user = req.session.user;
-      res.send(`Welcome, ${req.session.user.id}`);
+      res.send(`Welcome, ${req.session.user.id}`).status(201);
     } else {
       // Session is not active, user is not logged in
       res.status(401).send('Unauthorized');
